@@ -1,16 +1,39 @@
 package CarsRacerGame.Views;
 
+import CarsRacerGame.Enums.SceneType;
 import CarsRacerGame.Navigator;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+
 
 public class StartScene extends Scene {
     private Navigator navigator;
     private static Group root = new Group();
+    private Image menuBackground = new Image(this.getClass().getResourceAsStream("/cars_wallpaper.jpg"));
+    private Canvas canvas;
+    private GraphicsContext gc;
 
     public StartScene(Navigator navigator) {
         super(root);
 
         this.navigator = navigator;
+
+        canvas = new Canvas(800, 600);
+
+        gc = canvas.getGraphicsContext2D();
+        gc.drawImage(menuBackground, 0, 0);
+
+        Button button = new Button("Go to the Game!!");
+        button.setOnAction(e -> navigator.navigateTo(SceneType.GAME));
+
+        root.getChildren().addAll(canvas, button);
+
+
+
+
     }
 }
