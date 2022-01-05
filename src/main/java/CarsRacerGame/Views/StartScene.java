@@ -31,9 +31,5 @@ public class StartScene extends Scene {
         button.setOnAction(e -> navigator.navigateTo(SceneType.GAME));
 
         root.getChildren().addAll(canvas, button);
-
-
-
-
     }
 }

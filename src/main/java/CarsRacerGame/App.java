@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -23,6 +24,7 @@ public class App extends Application {
 
     }
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         lastTimeInNanoSec = System.nanoTime();
@@ -36,7 +38,6 @@ public class App extends Application {
         new AnimationTimer() {
             @Override
             public void handle(long currentTimeInNanoSec) {
-
 
                 long deltaInNanoSec = currentTimeInNanoSec - lastTimeInNanoSec;
                 double deltaInSec = deltaInNanoSec / 1000000000d; //oder: 1e9;

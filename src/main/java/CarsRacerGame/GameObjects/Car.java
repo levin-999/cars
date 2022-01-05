@@ -1,16 +1,19 @@
 package CarsRacerGame.GameObjects;
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
-import java.awt.*;
+
 
 public class Car {
     private double Speed = 200;
     private double x;
-    private static final double y = 200;
+    private static final double y = 400;
     private boolean isLeftKeyPressed = false;
     private boolean isRightKeyPressed = false;
     private Canvas canvas;
+    private Image image = new Image(this.getClass().getResourceAsStream("/car_blue.png"));
 
     public Car(double x, Canvas canvas) {
         this.x = x;
@@ -28,6 +31,6 @@ public class Car {
     }
 
     public void draw(GraphicsContext gc) {
-        gc.drawImage();
+        gc.drawImage(image, x, y);
     }
 }
