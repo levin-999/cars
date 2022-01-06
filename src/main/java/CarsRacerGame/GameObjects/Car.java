@@ -14,7 +14,7 @@ public class Car {
     private boolean isLeftKeyPressed = false;
     private boolean isRightKeyPressed = false;
     private Canvas canvas;
-    private Image image = new Image(this.getClass().getResourceAsStream("/car_blue.png"));
+    private Image image = new Image(this.getClass().getResourceAsStream("/cars_car.png"));
 
     public Car(double x, Canvas canvas) {
         this.x = x;

@@ -7,7 +7,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class Obstacle {
-    private double Speed = 125;
+    private double Speed = 200;
     private double x;
     private double y;
     Canvas canvas;

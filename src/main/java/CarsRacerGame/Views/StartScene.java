@@ -58,7 +58,7 @@ public class StartScene extends BaseScene {
         vBox.getChildren().addAll(button1, button2, button3);
         vBox.setAlignment(Pos.CENTER_RIGHT);
 
-        VBox.setMargin(vBox, new Insets(0, 0, 50, 0));
+
 
 
         BorderPane borderPane = new BorderPane();
