@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 
 
 public class Car {
-    private double Speed = 200;
+    private double Speed = 300;
     private double x;
     private static final double y = 400;
     private boolean isLeftKeyPressed = false;
@@ -25,12 +25,21 @@ public class Car {
         if (isLeftKeyPressed && x > 0) {
             x = x -distanceToMove;
         }
-        else if (isRightKeyPressed && x < 800) {
+        else if (isRightKeyPressed && x < 730) {
             x = x + distanceToMove;
         }
     }
 
     public void draw(GraphicsContext gc) {
+
         gc.drawImage(image, x, y);
+    }
+
+    public void setLeftKeyPressed(boolean leftKeyPressed) {
+        isLeftKeyPressed = leftKeyPressed;
+    }
+
+    public void setRightKeyPressed(boolean rightKeyPressed) {
+        isRightKeyPressed = rightKeyPressed;
     }
 }
