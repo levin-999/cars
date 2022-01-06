@@ -1,16 +1,13 @@
 package CarsRacerGame;
 
-import CarsRacerGame.Enums.SceneType;
-import CarsRacerGame.GameObjects.Car;
+import CarsRacerGame.common.enums.SceneType;
 import CarsRacerGame.Views.EndScene;
 import CarsRacerGame.Views.GameScene;
+import CarsRacerGame.Views.HelpScene;
 import CarsRacerGame.Views.StartScene;
-import javafx.animation.AnimationTimer;
+import CarsRacerGame.common.Navigator;
 import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -28,6 +25,7 @@ public class App extends Application {
         navigator.registerScene(SceneType.START, new StartScene(navigator));
         navigator.registerScene(SceneType.GAME, new GameScene(navigator));
         navigator.registerScene(SceneType.END, new EndScene(navigator));
+        navigator.registerScene(SceneType.HELP, new HelpScene(navigator));
         navigator.navigateTo(SceneType.START);
 
         primaryStage.setTitle("CarsRacerGame");

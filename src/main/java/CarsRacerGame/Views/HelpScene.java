@@ -4,11 +4,11 @@ import CarsRacerGame.common.Navigator;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 
-public class EndScene extends Scene {
+public class HelpScene extends Scene {
     private Navigator navigator;
     private static Group root = new Group();
 
-    public EndScene(Navigator navigator) {
+    public HelpScene(Navigator navigator) {
         super(root);
 
         this.navigator = navigator;
