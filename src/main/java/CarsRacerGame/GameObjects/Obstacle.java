@@ -1,6 +1,7 @@
 package CarsRacerGame.GameObjects;
 
 
+import javafx.geometry.BoundingBox;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -27,5 +28,11 @@ public class Obstacle {
         gc.drawImage(image, x, y);
     }
 
+    public BoundingBox getBoundingBox() {
+        return new BoundingBox(this.x, this.y, image.getWidth(), image.getHeight());
+    }
 
+    public boolean collidesWith(Car car) {
+        return this.getBoundingBox().intersects(car.getBoundingBox());
+    }
 }

@@ -1,5 +1,6 @@
 package CarsRacerGame.GameObjects;
 
+import javafx.geometry.BoundingBox;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -44,5 +45,9 @@ public class Car {
 
     public void setRightKeyPressed(boolean rightKeyPressed) {
         isRightKeyPressed = rightKeyPressed;
+    }
+
+    public BoundingBox getBoundingBox() {
+        return new BoundingBox(this.x, this.y, image.getWidth(), image.getHeight());
     }
 }

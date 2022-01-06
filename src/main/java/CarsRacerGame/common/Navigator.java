@@ -21,7 +21,9 @@ public class Navigator {
     }
 
     public void navigateTo(SceneType sceneType) {
-        currentScene.onExit();
+        if (currentScene != null) {
+            currentScene.onExit();
+        }
         currentScene = sceneMap.get(sceneType);
         stage.setScene(currentScene);
         currentScene.onEnter();

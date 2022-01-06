@@ -4,6 +4,7 @@ import CarsRacerGame.GameObjects.Car;
 import CarsRacerGame.GameObjects.Obstacle;
 import CarsRacerGame.common.BaseScene;
 import CarsRacerGame.common.Navigator;
+import CarsRacerGame.common.enums.SceneType;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -20,11 +21,12 @@ import java.util.Random;
 
 public class GameScene extends BaseScene {
     private Navigator navigator;
+    private AnimationTimer animationTimer;
     private long lastTimeInNanoSec;
     private static Group root = new Group();
     private Canvas canvas = new Canvas(800, 600);
     private GraphicsContext gc;
-    private javafx.scene.image.Image Background = new Image(this.getClass().getResourceAsStream("/cars_wallpaper.jpg"));
+    private javafx.scene.image.Image Background = new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
     private Car car = new Car(376, canvas);
     private List<Obstacle> obstacles= new ArrayList<Obstacle>();
 
@@ -38,12 +40,10 @@ public class GameScene extends BaseScene {
         root.getChildren().addAll(canvas);
 
         lastTimeInNanoSec = System.nanoTime();
-
-
     }
 
     private void setupScene() {
-        new AnimationTimer() {
+        animationTimer = new AnimationTimer() {
             @Override
             public void handle(long currentTimeInNanoSec) {
 
@@ -56,7 +56,8 @@ public class GameScene extends BaseScene {
                 update(deltaInSec);
                 paint();
             }
-        }.start();
+        };
+        animationTimer.start();
 
         this.setOnKeyPressed((e) -> onKeyPressed(e));
         this.setOnKeyReleased((e) -> onKeyReleased(e));
@@ -69,6 +70,9 @@ public class GameScene extends BaseScene {
 
         for (Obstacle obstacle : obstacles) {
             obstacle.update(deltaInSec);
+            if (obstacle.collidesWith(car)) {
+                navigator.navigateTo(SceneType.START);
+            }
         }
     }
 
@@ -85,7 +89,7 @@ public class GameScene extends BaseScene {
     public void spawnObstacles() {
         Random random = new Random();
 
-        int randInt = random.nextInt(750)+1;
+        int randInt = random.nextInt(700)+1;
         int randY = random.nextInt(500)-500;
         double dRandY = Double.valueOf(randY);
 
@@ -131,6 +135,6 @@ public class GameScene extends BaseScene {
 
     @Override
     public void onExit() {
-
+        animationTimer.stop();
     }
 }
