@@ -10,7 +10,7 @@ public class Coin {
     private double x;
     private double y;
     Canvas canvas;
-    private Image image = new Image(this.getClass().getResourceAsStream("coin.png"));
+    private Image image = new Image(this.getClass().getResourceAsStream("/coin.png"));
 
     public Coin(double x, double y, Canvas canvas) {
         this.x = x;

@@ -32,24 +32,33 @@ public class StartScene extends BaseScene {
 
         root.getChildren().addAll(canvas);
         createStartButton();
+        createHelpButton();
+        createExitButton();
     }
 
     private void createStartButton() {
         Buttons startButton = new Buttons("Start Game");
         root.getChildren().add(startButton);
-        startButton.setLayoutX(500);
-        startButton.setLayoutY(400);
+        startButton.setLayoutX(420);
+        startButton.setLayoutY(350);
         startButton.setOnAction(e -> navigator.navigateTo(SceneType.GAME));
     }
 
     private void createHelpButton() {
-        Buttons helpButton = new Buttons("Start Game");
-        root.getChildren().add(startButton);
-        startButton.setLayoutX(500);
-        startButton.setLayoutY(400);
-        startButton.setOnAction(e -> navigator.navigateTo(SceneType.GAME));
+        Buttons helpButton = new Buttons("Help");
+        root.getChildren().add(helpButton);
+        helpButton.setLayoutX(420);
+        helpButton.setLayoutY(420);
+        helpButton.setOnAction(e -> navigator.navigateTo(SceneType.HELP));
     }
 
+    private void createExitButton() {
+        Buttons exitButton = new Buttons("Exit");
+        root.getChildren().add(exitButton);
+        exitButton.setLayoutX(420);
+        exitButton.setLayoutY(490);
+
+    }
 
     @Override
     public void onEnter() {
