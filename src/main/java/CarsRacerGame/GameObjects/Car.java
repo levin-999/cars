@@ -5,8 +5,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-
-
 public class Car {
     private double CarSpeed = 300;
     private double x;
@@ -31,10 +29,10 @@ public class Car {
     }
 
     public void moveCar(double distanceToMove) {
-        if (isLeftKeyPressed && x > 0) {
+        if (isLeftKeyPressed && x > 200) {
             x = x -distanceToMove;
         }
-        else if (isRightKeyPressed && x < 730) {
+        else if (isRightKeyPressed && x < 550) {
             x = x + distanceToMove;
         }
     }

@@ -1,6 +1,7 @@
 package CarsRacerGame.Views;
 
 import CarsRacerGame.GameObjects.Car;
+import CarsRacerGame.GameObjects.Coin;
 import CarsRacerGame.GameObjects.Obstacle;
 import CarsRacerGame.common.BaseScene;
 import CarsRacerGame.common.Navigator;
@@ -28,8 +29,9 @@ public class GameScene extends BaseScene {
     private GraphicsContext gc;
     private Image background = new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
     private Car car = new Car(376, canvas);
-    private List<Obstacle> obstacles= new ArrayList<Obstacle>();
-
+    private List<Obstacle> obstacles = new ArrayList<Obstacle>();
+    private List<Coin> coins = new ArrayList<Coin>();
+    private int Score = 0;
 
 
     public GameScene(Navigator navigator) {
@@ -69,11 +71,20 @@ public class GameScene extends BaseScene {
         car.update(deltaInSec);
 
         spawnObstacles();
+        spawnCoins();
 
         for (Obstacle obstacle : obstacles) {
             obstacle.update(deltaInSec);
             if (obstacle.collidesWith(car)) {
+                Score = 0;
                 navigator.navigateTo(SceneType.START);
+            }
+        }
+
+        for (Coin coin : coins) {
+            coin.update(deltaInSec);
+            if (coin.collidesWith(car)) {
+                Score = Score + 5;
             }
         }
     }
@@ -85,6 +96,10 @@ public class GameScene extends BaseScene {
 
         for (Obstacle obstacle : obstacles) {
             obstacle.draw(gc);
+        }
+
+        for (Coin coin : coins) {
+            coin.draw(gc);
         }
     }
 
@@ -108,6 +123,30 @@ public class GameScene extends BaseScene {
             }
             else if (randLane == 4) {
                 obstacles.add(new Obstacle(550, dRandY, canvas));
+            }
+        }
+    }
+
+    public void spawnCoins() {
+        Random random = new Random();
+
+        int randInt = random.nextInt(3000)+1;
+        int randY = random.nextInt(500)-500;
+        double dRandY = Double.valueOf(randY);
+
+        if (randInt < 10) {
+            int randLane = random.nextInt(4)+1;
+            if (randLane == 1) {
+                coins.add(new Coin(250, dRandY, canvas));
+            }
+            else if (randLane == 2) {
+                coins.add(new Coin(350, dRandY, canvas));
+            }
+            else if (randLane == 3) {
+                coins.add(new Coin(450, dRandY, canvas));
+            }
+            else if (randLane == 4) {
+                coins.add(new Coin(550, dRandY, canvas));
             }
         }
     }
