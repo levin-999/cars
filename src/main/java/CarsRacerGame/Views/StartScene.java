@@ -15,9 +15,6 @@ public class StartScene extends BaseScene {
     private Navigator navigator;
     private static Group root = new Group();
     private Image menuBackground = new Image(this.getClass().getResourceAsStream("/cars_wallpaper.jpg"));
-    private Image quitButton = new Image(this.getClass().getResourceAsStream("/quitButton.png"));
-    private final String BUTTON_STYLE = "-fxbackground-color: transparent; -fxbackground-image: url('/startGameButton.png')";
-    private Image helpButton = new Image(this.getClass().getResourceAsStream("/helpButton.png"));
     private Canvas canvas;
     private GraphicsContext gc;
 

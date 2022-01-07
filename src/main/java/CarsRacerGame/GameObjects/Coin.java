@@ -32,7 +32,7 @@ public class Coin {
         return new BoundingBox(this.x, this.y, image.getWidth(), image.getHeight());
     }
 
-    public boolean collidesWith(Car car){
+    public boolean collidesWithCar(Car car){
         return this.getBoundingBox().intersects(car.getBoundingBox());
     }
 }

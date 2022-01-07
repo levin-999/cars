@@ -35,6 +35,7 @@ public class Car {
         else if (isRightKeyPressed && x < 540) {
             x = x + distanceToMove;
         }
+
     }
 
     public void setLeftKeyPressed(boolean leftKeyPressed) {

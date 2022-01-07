@@ -30,6 +30,7 @@ public class GameScene extends BaseScene {
     private Canvas canvas = new Canvas(800, 600);
     private GraphicsContext gc;
     private Image background = new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
+    private String font = "src/main/resources/font.ttf";
     private Car car = new Car(376, canvas);
     private List<Obstacle> obstacles = new ArrayList<Obstacle>();
     private List<Coin> coins = new CopyOnWriteArrayList<Coin>();
@@ -46,7 +47,7 @@ public class GameScene extends BaseScene {
         gc = canvas.getGraphicsContext2D();
 
         label = new Label();
-        label.setFont(new Font("font.ttf", MAX_FONT_SIZE));
+        label.setFont(new Font("Cambria", MAX_FONT_SIZE));
         label.setLayoutX(660);
         label.setLayoutY(10);
 
@@ -66,7 +67,7 @@ public class GameScene extends BaseScene {
 
         for (Obstacle obstacle : obstacles) {
             obstacle.update(deltaInSec, Score);
-            if (obstacle.collidesWith(car)) {
+            if (obstacle.collidesWithCar(car)) {
                 Score = 0;
                 navigator.navigateTo(SceneType.START);
             }
@@ -74,7 +75,7 @@ public class GameScene extends BaseScene {
 
         for (Coin coin : coins) {
             coin.update(deltaInSec, Score);
-            if (coin.collidesWith(car)) {
+            if (coin.collidesWithCar(car)) {
                 coins.remove(coin);
                 Score = Score + 5;
             }
@@ -97,6 +98,7 @@ public class GameScene extends BaseScene {
 
     private void setupScene() {
         animationTimer = new AnimationTimer() {
+
             @Override
             public void handle(long currentTimeInNanoSec) {
 
@@ -119,7 +121,7 @@ public class GameScene extends BaseScene {
     public void spawnObstacles() {
         Random random = new Random();
 
-        int randInt = random.nextInt(700)+1;
+        int randInt = random.nextInt(600)+1;
         int randY = random.nextInt(500)-500;
         double dRandY = Double.valueOf(randY);
 
