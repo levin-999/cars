@@ -8,16 +8,16 @@ import CarsRacerGame.common.Navigator;
 import CarsRacerGame.common.enums.SceneType;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class GameScene extends BaseScene {
@@ -30,8 +30,12 @@ public class GameScene extends BaseScene {
     private Image background = new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
     private Car car = new Car(376, canvas);
     private List<Obstacle> obstacles = new ArrayList<Obstacle>();
-    private List<Coin> coins = new ArrayList<Coin>();
+    private List<Coin> coins = new CopyOnWriteArrayList<Coin>();
     private int Score = 0;
+    private Label label;
+
+
+
 
 
     public GameScene(Navigator navigator) {
@@ -41,9 +45,53 @@ public class GameScene extends BaseScene {
 
         gc = canvas.getGraphicsContext2D();
 
-        root.getChildren().addAll(canvas);
+        label = new Label();
+
+        root.getChildren().addAll(canvas, label);
 
         lastTimeInNanoSec = System.nanoTime();
+    }
+
+    public void update(double deltaInSec) {
+        car.update(deltaInSec);
+        spawnObstacles();
+        spawnCoins();
+
+        switchScenes();
+
+
+
+        label.setText("Score: " + Score);
+
+        for (Obstacle obstacle : obstacles) {
+            obstacle.update(deltaInSec, Score);
+            if (obstacle.collidesWith(car)) {
+                Score = 0;
+                navigator.navigateTo(SceneType.START);
+            }
+        }
+
+        for (Coin coin : coins) {
+            coin.update(deltaInSec, Score);
+            if (coin.collidesWith(car)) {
+                coins.remove(coin);
+                Score = Score + 5;
+            }
+        }
+    }
+
+    public void paint() {
+        gc.drawImage(background, 0, 0);
+
+        car.draw(gc);
+
+        for (Obstacle obstacle : obstacles) {
+            obstacle.draw(gc);
+        }
+
+        for (Coin coin : coins) {
+            coin.draw(gc);
+        }
     }
 
     private void setupScene() {
@@ -67,42 +115,6 @@ public class GameScene extends BaseScene {
         this.setOnKeyReleased((e) -> onKeyReleased(e));
     }
 
-    public void update(double deltaInSec) {
-        car.update(deltaInSec);
-
-        spawnObstacles();
-        spawnCoins();
-
-        for (Obstacle obstacle : obstacles) {
-            obstacle.update(deltaInSec);
-            if (obstacle.collidesWith(car)) {
-                Score = 0;
-                navigator.navigateTo(SceneType.START);
-            }
-        }
-
-        for (Coin coin : coins) {
-            coin.update(deltaInSec);
-            if (coin.collidesWith(car)) {
-                Score = Score + 5;
-            }
-        }
-    }
-
-    public void paint() {
-        gc.drawImage(background, 0, 0);
-
-        car.draw(gc);
-
-        for (Obstacle obstacle : obstacles) {
-            obstacle.draw(gc);
-        }
-
-        for (Coin coin : coins) {
-            coin.draw(gc);
-        }
-    }
-
     public void spawnObstacles() {
         Random random = new Random();
 
@@ -116,13 +128,13 @@ public class GameScene extends BaseScene {
                 obstacles.add(new Obstacle(223, dRandY, canvas));
             }
             else if (randLane == 2) {
-                obstacles.add(new Obstacle(350, dRandY, canvas));
+                obstacles.add(new Obstacle(323, dRandY, canvas));
             }
             else if (randLane == 3) {
-                obstacles.add(new Obstacle(450, dRandY, canvas));
+                obstacles.add(new Obstacle(423, dRandY, canvas));
             }
             else if (randLane == 4) {
-                obstacles.add(new Obstacle(550, dRandY, canvas));
+                obstacles.add(new Obstacle(523, dRandY, canvas));
             }
         }
     }
@@ -130,7 +142,7 @@ public class GameScene extends BaseScene {
     public void spawnCoins() {
         Random random = new Random();
 
-        int randInt = random.nextInt(3000)+1;
+        int randInt = random.nextInt(2000)+1;
         int randY = random.nextInt(500)-500;
         double dRandY = Double.valueOf(randY);
 
@@ -148,6 +160,15 @@ public class GameScene extends BaseScene {
             else if (randLane == 4) {
                 coins.add(new Coin(550, dRandY, canvas));
             }
+        }
+    }
+
+    public void switchScenes() {
+        if (Score < 25) {
+            background =  new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
+        }
+        if (Score > 25) {
+            background =  new Image(this.getClass().getResourceAsStream("/LosAngelesBackground.png"));
         }
     }
 

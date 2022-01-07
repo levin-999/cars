@@ -29,10 +29,10 @@ public class Car {
     }
 
     public void moveCar(double distanceToMove) {
-        if (isLeftKeyPressed && x > 200) {
+        if (isLeftKeyPressed && x > 210) {
             x = x -distanceToMove;
         }
-        else if (isRightKeyPressed && x < 550) {
+        else if (isRightKeyPressed && x < 540) {
             x = x + distanceToMove;
         }
     }

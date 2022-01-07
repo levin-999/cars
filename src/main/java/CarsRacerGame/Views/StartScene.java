@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 
 
 public class StartScene extends BaseScene {
@@ -57,7 +58,7 @@ public class StartScene extends BaseScene {
         root.getChildren().add(exitButton);
         exitButton.setLayoutX(420);
         exitButton.setLayoutY(490);
-
+        exitButton.setOnAction(event -> System.exit(0));
     }
 
     @Override

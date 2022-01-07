@@ -19,7 +19,8 @@ public class Obstacle {
         this.canvas = canvas;
     }
 
-    public void update(double deltaTimeInSec) {
+    public void update(double deltaTimeInSec,  int Score) {
+        Speed = Score + 200;
         double distanceToMove = Speed * deltaTimeInSec;
         y = y + distanceToMove;
     }
