@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Font;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -33,9 +35,7 @@ public class GameScene extends BaseScene {
     private List<Coin> coins = new CopyOnWriteArrayList<Coin>();
     private int Score = 0;
     private Label label;
-
-
-
+    private double MAX_FONT_SIZE = 30;
 
 
     public GameScene(Navigator navigator) {
@@ -46,6 +46,9 @@ public class GameScene extends BaseScene {
         gc = canvas.getGraphicsContext2D();
 
         label = new Label();
+        label.setFont(new Font("font.ttf", MAX_FONT_SIZE));
+        label.setLayoutX(660);
+        label.setLayoutY(10);
 
         root.getChildren().addAll(canvas, label);
 
@@ -58,8 +61,6 @@ public class GameScene extends BaseScene {
         spawnCoins();
 
         switchScenes();
-
-
 
         label.setText("Score: " + Score);
 
@@ -123,7 +124,7 @@ public class GameScene extends BaseScene {
         double dRandY = Double.valueOf(randY);
 
         if (randInt < 10) {
-            int randLane = random.nextInt(4)+1;
+            int randLane = random.nextInt(5)+1;
             if (randLane == 1) {
                 obstacles.add(new Obstacle(223, dRandY, canvas));
             }
@@ -149,16 +150,16 @@ public class GameScene extends BaseScene {
         if (randInt < 10) {
             int randLane = random.nextInt(4)+1;
             if (randLane == 1) {
-                coins.add(new Coin(250, dRandY, canvas));
+                coins.add(new Coin(223, dRandY, canvas));
             }
             else if (randLane == 2) {
-                coins.add(new Coin(350, dRandY, canvas));
+                coins.add(new Coin(323, dRandY, canvas));
             }
             else if (randLane == 3) {
-                coins.add(new Coin(450, dRandY, canvas));
+                coins.add(new Coin(423, dRandY, canvas));
             }
             else if (randLane == 4) {
-                coins.add(new Coin(550, dRandY, canvas));
+                coins.add(new Coin(523, dRandY, canvas));
             }
         }
     }
