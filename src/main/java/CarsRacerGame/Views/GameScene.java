@@ -113,7 +113,7 @@ public class GameScene extends BaseScene {
         if (randInt < 10) {
             int randLane = random.nextInt(4)+1;
             if (randLane == 1) {
-                obstacles.add(new Obstacle(250, dRandY, canvas));
+                obstacles.add(new Obstacle(223, dRandY, canvas));
             }
             else if (randLane == 2) {
                 obstacles.add(new Obstacle(350, dRandY, canvas));
