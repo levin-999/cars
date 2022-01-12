@@ -1,5 +1,6 @@
 package ch.bbcag.carsracergame.scenes;
 
+import ch.bbcag.carsracergame.common.ArrowButton;
 import ch.bbcag.carsracergame.common.ImageButton;
 import ch.bbcag.carsracergame.common.scene.BaseScene;
 import ch.bbcag.carsracergame.common.scene.Navigator;
@@ -22,14 +23,14 @@ public class HelpScene extends BaseScene {
         gc.drawImage(backgroundImage, 0, 0);
 
         getGroup().getChildren().addAll(canvas);
-        createButton();
+        createArrow();
     }
 
-
-    private void createButton() {
-        ImageButton button = new ImageButton("Back", 600, 500, SceneType.START, navigator);
-        getGroup().getChildren().add(button);
+    private void createArrow() {
+        ArrowButton goBackArrow = new ArrowButton(10, 10, SceneType.START, navigator);
+        getGroup().getChildren().add(goBackArrow);
     }
+
 
     @Override
     public void onEnter() {

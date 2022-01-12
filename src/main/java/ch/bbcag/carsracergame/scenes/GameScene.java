@@ -1,5 +1,6 @@
 package ch.bbcag.carsracergame.scenes;
 
+import ch.bbcag.carsracergame.common.Cars;
 import ch.bbcag.carsracergame.gameobjects.Car;
 import ch.bbcag.carsracergame.gameobjects.Coin;
 import ch.bbcag.carsracergame.gameobjects.Obstacle;
@@ -21,23 +22,29 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class GameScene extends BaseScene {
+
+
+    private Cars cars;
+
+    private Car car;
     private AnimationTimer animationTimer;
     private long lastTimeInNanoSec;
     private Canvas canvas = new Canvas(800, 600);
     private GraphicsContext gc;
     private Image background = new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
     private String font = "src/main/resources/font.ttf";
-    private Car car = new Car(376, canvas);
-    private List<Obstacle> obstacles = new ArrayList<Obstacle>();
-    private List<Coin> coins = new CopyOnWriteArrayList<Coin>();
+    private List<Obstacle> obstacles = new ArrayList<>();
+    private List<Coin> coins = new CopyOnWriteArrayList<>();
     private int score = 0;
     private Label label;
     private double MAX_FONT_SIZE = 30;
 
 
-    public GameScene(Navigator navigator) {
+    public GameScene(Navigator navigator, Cars cars) {
         super(navigator);
+        this.cars = cars;
 
+        car = cars.getCar();
         gc = canvas.getGraphicsContext2D();
 
         label = new Label();
@@ -160,14 +167,17 @@ public class GameScene extends BaseScene {
     }
 
     public void switchBackground() {
-        if (score < 25) {
+        if (score < 5) {
             background =  new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
         }
-        if (score > 25) {
+        if (score > 10) {
             background =  new Image(this.getClass().getResourceAsStream("/LosAngelesBackground.png"));
         }
-        if (score > 50) {
+        if (score > 15) {
             background = new Image(this.getClass().getResourceAsStream("/TokyoBackground.png"));
+        }
+        if (score > 20) {
+            background = new Image(this.getClass().getResourceAsStream("/PortoCorsaBackground.png"));
         }
     }
 
@@ -190,6 +200,8 @@ public class GameScene extends BaseScene {
             car.setRightKeyPressed(false);
         }
     }
+
+
 
     @Override
     public void onEnter() {

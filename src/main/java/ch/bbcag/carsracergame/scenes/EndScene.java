@@ -38,7 +38,7 @@ public class EndScene extends BaseScene {
     }
 
     private void createBackToStartButton(){
-        ImageButton backButton = new ImageButton("Back to Start", 150, 450, SceneType.START, navigator);
+        ImageButton backButton = new ImageButton("Menu", 150, 450, SceneType.START, navigator);
         getGroup().getChildren().add(backButton);
     }
 

@@ -7,6 +7,7 @@ import ch.bbcag.carsracergame.common.scene.Navigator;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 
 
 public class StartScene extends BaseScene {
@@ -31,12 +32,13 @@ public class StartScene extends BaseScene {
     }
 
     private void createStartButton() {
-        ImageButton startButton = new ImageButton("Start", 550, 330, SceneType.GAME, navigator);
+        ImageButton startButton = new ImageButton("Game", 550, 330, SceneType.GAME, navigator);
         getGroup().getChildren().add(startButton);
     }
 
     private void createCharacterButton() {
-        ImageButton characterButton = new ImageButton("Choose Character", 550, 390, SceneType.CHARACTER, navigator);
+        ImageButton characterButton = new ImageButton("Choose Car", 550, 390, SceneType.CHARACTER, navigator);
+        characterButton.setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 13));
         getGroup().getChildren().add(characterButton);
     }
 

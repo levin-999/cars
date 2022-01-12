@@ -6,17 +6,17 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class Car {
+    private String imagePath;
     private double CarSpeed = 300;
-    private double x;
+    private double x = 375;
     private static final double y = 400;
     private boolean isLeftKeyPressed = false;
     private boolean isRightKeyPressed = false;
-    private Canvas canvas;
-    private Image image = new Image(this.getClass().getResourceAsStream("/cars_car.png"));
+    public Image image;
 
-    public Car(double x, Canvas canvas) {
-        this.x = x;
-        this.canvas = canvas;
+    public Car(String imagePath) {
+        this.imagePath = imagePath;
+        image =  new Image(this.getClass().getResourceAsStream(imagePath));
     }
 
     public void update(double deltaTimeInSec) {
@@ -36,6 +36,14 @@ public class Car {
             x = x + distanceToMove;
         }
 
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 
     public void setLeftKeyPressed(boolean leftKeyPressed) {

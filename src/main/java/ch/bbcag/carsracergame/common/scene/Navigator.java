@@ -1,5 +1,6 @@
 package ch.bbcag.carsracergame.common.scene;
 
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.util.HashMap;
 import java.util.Map;

@@ -13,7 +13,7 @@ public class ImageButton extends Button {
     public ImageButton(String text, int x, int y) {
         setText(text);
         setStyle(BUTTON_STYLE);
-        setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 15));
+        setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 18));
         setPrefSize(190, 49);
         setLayoutY(y);
         setLayoutX(x);
@@ -22,7 +22,7 @@ public class ImageButton extends Button {
     public ImageButton(String text){
         setText(text);
         setStyle(BUTTON_STYLE);
-        setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 15));
+        setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 18));
         setPrefSize(190, 49);
     }
 
@@ -31,14 +31,11 @@ public class ImageButton extends Button {
 
         setText(text);
         setStyle(BUTTON_STYLE);
-        setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 15));
+        setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 18));
         setPrefSize(190, 49);
         setOnAction(e -> navigator.navigateTo(nextScene));
         setLayoutY(y);
         setLayoutX(x);
     }
 
-    private void setButtonFont() {
-        setFont(Font.font("", 23));
-    }
 }
