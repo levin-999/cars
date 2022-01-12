@@ -1,4 +1,4 @@
-package ch.bbcag.carsracergame.common.scene.enums;
+package ch.bbcag.carsracergame.common.scene;
 
 import javafx.stage.Stage;
 import java.util.HashMap;

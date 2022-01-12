@@ -1,9 +1,9 @@
 package ch.bbcag.carsracergame.scenes;
 
 import ch.bbcag.carsracergame.common.ImageButton;
-import ch.bbcag.carsracergame.common.scene.enums.BaseScene;
-import ch.bbcag.carsracergame.common.scene.enums.Navigator;
-import ch.bbcag.carsracergame.common.scene.enums.SceneType;
+import ch.bbcag.carsracergame.common.scene.BaseScene;
+import ch.bbcag.carsracergame.common.scene.Navigator;
+import ch.bbcag.carsracergame.common.scene.SceneType;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;

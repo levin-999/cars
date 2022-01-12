@@ -1,11 +1,11 @@
 package ch.bbcag.carsracergame;
 
-import ch.bbcag.carsracergame.common.scene.enums.SceneType;
+import ch.bbcag.carsracergame.common.scene.SceneType;
 import ch.bbcag.carsracergame.scenes.EndScene;
 import ch.bbcag.carsracergame.scenes.GameScene;
 import ch.bbcag.carsracergame.scenes.HelpScene;
 import ch.bbcag.carsracergame.scenes.StartScene;
-import ch.bbcag.carsracergame.common.scene.enums.Navigator;
+import ch.bbcag.carsracergame.common.scene.Navigator;
 import javafx.application.Application;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;

@@ -1,8 +1,8 @@
 package ch.bbcag.carsracergame.common;
 
 
-import ch.bbcag.carsracergame.common.scene.enums.Navigator;
-import ch.bbcag.carsracergame.common.scene.enums.SceneType;
+import ch.bbcag.carsracergame.common.scene.Navigator;
+import ch.bbcag.carsracergame.common.scene.SceneType;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 
