@@ -24,12 +24,12 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.media']
 }
 
-mainClassName = 'CarsRacerGame.Launcher'
+mainClassName = 'ch.bbcag.carsracergame.Launcher'
 
 jar {
     duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
     manifest{
-        attributes 'Main-Class': 'CarsRacerGame.Launcher'
+        attributes 'Main-Class': 'ch.bbcag.carsracergame.Launcher'
     }
 
     from {
