@@ -22,10 +22,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class GameScene extends BaseScene {
-    private Navigator navigator;
     private AnimationTimer animationTimer;
     private long lastTimeInNanoSec;
-    private static Group root = new Group();
     private Canvas canvas = new Canvas(800, 600);
     private GraphicsContext gc;
     private Image background = new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
@@ -39,18 +37,16 @@ public class GameScene extends BaseScene {
 
 
     public GameScene(Navigator navigator) {
-        super(root);
-
-        this.navigator = navigator;
+        super(navigator);
 
         gc = canvas.getGraphicsContext2D();
 
         label = new Label();
-        label.setFont(new Font("Cambria", MAX_FONT_SIZE));
-        label.setLayoutX(660);
+        label.setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 15));
+        label.setLayoutX(625);
         label.setLayoutY(10);
 
-        root.getChildren().addAll(canvas, label);
+        getGroup().getChildren().addAll(canvas, label);
 
         lastTimeInNanoSec = System.nanoTime();
     }
@@ -196,10 +192,12 @@ public class GameScene extends BaseScene {
     @Override
     public void onEnter() {
         setupScene();
+        System.out.println("GameScene:onEnter");
     }
 
     @Override
     public void onExit() {
         animationTimer.stop();
+        System.out.println("GameScene:onExit");
     }
 }

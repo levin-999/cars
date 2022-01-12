@@ -1,5 +1,6 @@
 package CarsRacerGame.Views;
 
+import CarsRacerGame.GameObjects.Buttons;
 import CarsRacerGame.common.BaseScene;
 import CarsRacerGame.common.Navigator;
 import CarsRacerGame.common.enums.SceneType;
@@ -19,41 +20,30 @@ import java.util.Collection;
 
 
 public class HelpScene extends BaseScene {
-    private Navigator navigator;
-    private static Group root = new Group();
     private Image backgroundImage = new Image(this.getClass().getResourceAsStream("/cars_wallpaper.jpg"));
     private GraphicsContext gc;
     private Canvas canvas;
 
     public HelpScene(Navigator navigator) {
-        super(root);
-        this.navigator = navigator;
+        super(navigator);
 
         canvas = new Canvas(800, 600);
         gc = canvas.getGraphicsContext2D();
         gc.drawImage(backgroundImage, 0, 0);
 
-        Button button = new Button("Back");
-        button.setOnAction(e -> navigator.navigateTo(SceneType.START));
-
-        VBox vBox = new VBox();
-        vBox.setPadding(new Insets(20));
-        vBox.getChildren().addAll(button);
-        vBox.setAlignment(Pos.BOTTOM_RIGHT);
-
-        BorderPane borderPane = new BorderPane();
-        borderPane.setMinSize(800, 600);
-        borderPane.setRight(vBox);
-
-
-
-
-
-        root.getChildren().addAll(canvas, borderPane);
-
+        getGroup().getChildren().addAll(canvas);
+        createButton();
     }
     public void setupScene() {
 
+    }
+
+    private void createButton() {
+        Buttons button = new Buttons("Back");
+        getGroup().getChildren().add(button);
+        button.setOnAction(e -> navigator.navigateTo(SceneType.START));
+        button.setLayoutY(500);
+        button.setLayoutX(600);
     }
 
     @Override

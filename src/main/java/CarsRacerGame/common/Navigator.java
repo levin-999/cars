@@ -1,32 +1,38 @@
 package CarsRacerGame.common;
 
+import CarsRacerGame.Views.GameScene;
 import CarsRacerGame.common.enums.SceneType;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class Navigator {
-    private Stage stage;
-    private Map<SceneType, BaseScene> sceneMap = new HashMap<>();
+    private Map<SceneType, Supplier<BaseScene>> scenesToConstructor = new HashMap<>();
     private BaseScene currentScene;
+    private Stage stage;
 
     public Navigator(Stage stage) {
         this.stage = stage;
     }
 
-    public void registerScene(SceneType sceneType, BaseScene scene) {
-        sceneMap.put(sceneType, scene);
+    public void registerScene(SceneType sceneType, Supplier<BaseScene> f) {
+        scenesToConstructor.put(sceneType, f);
     }
 
     public void navigateTo(SceneType sceneType) {
         if (currentScene != null) {
             currentScene.onExit();
         }
-        currentScene = sceneMap.get(sceneType);
-        stage.setScene(currentScene);
-        currentScene.onEnter();
-        stage.show();
+
+        Supplier<BaseScene> f = scenesToConstructor.get(sceneType);
+
+        if (f != null) {
+            BaseScene newScene = f.get();
+            currentScene = newScene;
+            newScene.onEnter();
+            stage.setScene(newScene);
+        }
     }
 }
