@@ -15,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Font;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -34,7 +33,7 @@ public class GameScene extends BaseScene {
     private Car car = new Car(376, canvas);
     private List<Obstacle> obstacles = new ArrayList<Obstacle>();
     private List<Coin> coins = new CopyOnWriteArrayList<Coin>();
-    private int Score = 0;
+    private int score = 0;
     private Label label;
     private double MAX_FONT_SIZE = 30;
 
@@ -60,24 +59,23 @@ public class GameScene extends BaseScene {
         car.update(deltaInSec);
         spawnObstacles();
         spawnCoins();
+        switchBackground();
 
-        switchScenes();
-
-        label.setText("Score: " + Score);
+        label.setText("Score: " + score);
 
         for (Obstacle obstacle : obstacles) {
-            obstacle.update(deltaInSec, Score);
+            obstacle.update(deltaInSec, score);
             if (obstacle.collidesWithCar(car)) {
-                Score = 0;
-                navigator.navigateTo(SceneType.START);
+                score = 0;
+                navigator.navigateTo(SceneType.END);
             }
         }
 
         for (Coin coin : coins) {
-            coin.update(deltaInSec, Score);
+            coin.update(deltaInSec, score);
             if (coin.collidesWithCar(car)) {
                 coins.remove(coin);
-                Score = Score + 5;
+                score = score + 5;
             }
         }
     }
@@ -104,7 +102,7 @@ public class GameScene extends BaseScene {
 
 
                 long deltaInNanoSec = currentTimeInNanoSec - lastTimeInNanoSec;
-                double deltaInSec = deltaInNanoSec / 1000000000d; //oder: 1e9;
+                double deltaInSec = deltaInNanoSec / 1000000000d;
 
                 lastTimeInNanoSec = currentTimeInNanoSec;
 
@@ -166,14 +164,15 @@ public class GameScene extends BaseScene {
         }
     }
 
-    public void switchScenes() {
-        if (Score < 25) {
+    public void switchBackground() {
+        if (score < 25) {
             background =  new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
         }
-        if (Score > 25) {
+        if (score > 25) {
             background =  new Image(this.getClass().getResourceAsStream("/LosAngelesBackground.png"));
         }
     }
+
 
     public void onKeyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.LEFT) {
