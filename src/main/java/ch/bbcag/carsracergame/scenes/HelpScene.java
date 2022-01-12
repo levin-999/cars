@@ -24,9 +24,7 @@ public class HelpScene extends BaseScene {
         getGroup().getChildren().addAll(canvas);
         createButton();
     }
-    public void setupScene() {
 
-    }
 
     private void createButton() {
         ImageButton button = new ImageButton("Back", 600, 500, SceneType.START, navigator);

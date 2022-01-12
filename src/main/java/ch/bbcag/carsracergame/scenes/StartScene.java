@@ -27,24 +27,27 @@ public class StartScene extends BaseScene {
         createStartButton();
         createHelpButton();
         createExitButton();
+        createCharacterButton();
     }
 
     private void createStartButton() {
-        ImageButton startButton = new ImageButton("Start", 420, 350, SceneType.GAME, navigator);
+        ImageButton startButton = new ImageButton("Start", 550, 330, SceneType.GAME, navigator);
         getGroup().getChildren().add(startButton);
-        startButton.setLayoutX(420);
-        startButton.setLayoutY(350);
-        startButton.setOnAction(e -> navigator.navigateTo(SceneType.GAME));
+    }
+
+    private void createCharacterButton() {
+        ImageButton characterButton = new ImageButton("Choose Character", 550, 390, SceneType.CHARACTER, navigator);
+        getGroup().getChildren().add(characterButton);
     }
 
     private void createHelpButton() {
-        ImageButton helpButton = new ImageButton("Help", 420, 420, SceneType.HELP, navigator);
+        ImageButton helpButton = new ImageButton("Help", 550, 450, SceneType.HELP, navigator);
         getGroup().getChildren().add(helpButton);
 
     }
 
     private void createExitButton() {
-        ImageButton exitButton = new ImageButton("Exit", 420, 490);
+        ImageButton exitButton = new ImageButton("Exit", 550, 510);
         getGroup().getChildren().add(exitButton);
         exitButton.setOnAction(event -> System.exit(0));
     }

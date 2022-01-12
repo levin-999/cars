@@ -4,5 +4,6 @@ public enum SceneType {
     START,
     GAME,
     END,
-    HELP
+    HELP,
+    CHARACTER
 }

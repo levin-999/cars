@@ -11,9 +11,7 @@ public class ImageButton extends Button {
     private final String BUTTON_STYLE = "-fx-background-color: transparent; -fx-background-image: url('yellow_button00.png')";
 
     public ImageButton(String text, int x, int y) {
-
         setText(text);
-        setButtonFont();
         setStyle(BUTTON_STYLE);
         setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 15));
         setPrefSize(190, 49);
@@ -21,16 +19,20 @@ public class ImageButton extends Button {
         setLayoutX(x);
     }
 
+    public ImageButton(String text){
+        setText(text);
+        setStyle(BUTTON_STYLE);
+        setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 15));
+        setPrefSize(190, 49);
+    }
+
 
     public ImageButton(String text, int x, int y, SceneType nextScene, Navigator navigator) {
 
         setText(text);
-        setButtonFont();
         setStyle(BUTTON_STYLE);
         setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 15));
         setPrefSize(190, 49);
-
-
         setOnAction(e -> navigator.navigateTo(nextScene));
         setLayoutY(y);
         setLayoutX(x);

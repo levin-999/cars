@@ -166,6 +166,9 @@ public class GameScene extends BaseScene {
         if (score > 25) {
             background =  new Image(this.getClass().getResourceAsStream("/LosAngelesBackground.png"));
         }
+        if (score > 50) {
+            background = new Image(this.getClass().getResourceAsStream("/TokyoBackground.png"));
+        }
     }
 
 
