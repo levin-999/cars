@@ -40,9 +40,6 @@ public class GameScene extends BaseScene {
     private List<Coin> coins = new CopyOnWriteArrayList<>();
     private int score = 0;
     private Label label;
-    //private String musicPath = "TokyoDrift.mp3";
-    //private Media media = new Media(Paths.get(musicPath).toUri().toString());
-    //private MediaPlayer mediaPlayer = new MediaPlayer(media);
     public static int highscore;
 
 
@@ -185,13 +182,15 @@ public class GameScene extends BaseScene {
         }
         if (score > 10) {
             background =  new Image(this.getClass().getResourceAsStream("/LosAngelesBackground.png"));
-            //mediaPlayer.play();
         }
         if (score > 15) {
             background = new Image(this.getClass().getResourceAsStream("/TokyoBackground.png"));
         }
         if (score > 20) {
             background = new Image(this.getClass().getResourceAsStream("/PortoCorsaBackground.png"));
+        }
+        if (score > 25) {
+            background = new Image(this.getClass().getResourceAsStream("/LondonBackground"));
         }
     }
 
