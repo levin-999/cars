@@ -7,6 +7,7 @@ import ch.bbcag.carsracergame.gameobjects.Obstacle;
 import ch.bbcag.carsracergame.common.scene.BaseScene;
 import ch.bbcag.carsracergame.common.scene.Navigator;
 import ch.bbcag.carsracergame.common.scene.SceneType;
+import com.sun.javafx.media.PrismMediaFrameHandler;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -18,7 +19,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 
-import java.nio.file.Paths;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -34,7 +35,7 @@ public class GameScene extends BaseScene {
     private long lastTimeInNanoSec;
     private Canvas canvas = new Canvas(800, 600);
     private GraphicsContext gc;
-    private Image background = new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
+    private Image background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/RadiatorSpringsBackground.png"));
     private String font = "src/main/resources/font.ttf";
     private List<Obstacle> obstacles = new ArrayList<>();
     private List<Coin> coins = new CopyOnWriteArrayList<>();
@@ -42,6 +43,17 @@ public class GameScene extends BaseScene {
     private Label label;
     public static int highscore;
 
+    private URL audio1Path = getClass().getResource("/audio/LifeIsAHighway.mp3");
+    private Media audio1 = new Media(audio1Path.toString());
+    private MediaPlayer mediaPlayer1 = new MediaPlayer(audio1);
+
+    private URL audio2Path = getClass().getResource("/audio/TokyoDrift.mp3");
+    private Media audio2 = new Media(audio2Path.toString());
+    private MediaPlayer mediaPlayer2 = new MediaPlayer(audio2);
+
+    private URL audio3Path = getClass().getResource("/audio/TokyoDrift.mp3");
+    private Media audio3 = new Media(audio3Path.toString());
+    private MediaPlayer mediaPlayer3 = new MediaPlayer(audio3);
 
 
 
@@ -54,7 +66,7 @@ public class GameScene extends BaseScene {
         gc = canvas.getGraphicsContext2D();
 
         label = new Label();
-        label.setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 15));
+        label.setFont(Font.loadFont((getClass().getResourceAsStream("/fonts/font.ttf")), 15));
         label.setLayoutX(625);
         label.setLayoutY(10);
 
@@ -67,7 +79,7 @@ public class GameScene extends BaseScene {
         car.update(deltaInSec);
         spawnObstacles();
         spawnCoins();
-        switchBackground();
+        switchThemes();
 
         if (score > highscore) {
             highscore = score;
@@ -176,23 +188,33 @@ public class GameScene extends BaseScene {
         }
     }
 
-    public void switchBackground() {
+    public void switchThemes() {
+        mediaPlayer1.setVolume(0.04);
+        mediaPlayer3.setVolume(0.04);
         if (score < 5) {
-            background =  new Image(this.getClass().getResourceAsStream("/RadiatorSpringsBackground.png"));
+            background =  new Image(this.getClass().getResourceAsStream("/images/backgrounds/RadiatorSpringsBackground.png"));
+            mediaPlayer1.play();
         }
         if (score > 10) {
-            background =  new Image(this.getClass().getResourceAsStream("/LosAngelesBackground.png"));
+            background =  new Image(this.getClass().getResourceAsStream("/images/backgrounds/LosAngelesBackground.png"));
+            mediaPlayer1.stop();
         }
-        if (score > 15) {
-            background = new Image(this.getClass().getResourceAsStream("/TokyoBackground.png"));
+        if (score > 150) {
+            background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/TokyoBackground.png"));
+            mediaPlayer3.play();
         }
         if (score > 20) {
-            background = new Image(this.getClass().getResourceAsStream("/PortoCorsaBackground.png"));
+            background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/PortoCorsaBackground.png"));
         }
         if (score > 25) {
-            background = new Image(this.getClass().getResourceAsStream("/LondonBackground"));
+            background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/LondonBackground.png"));
+        }
+        if (score > 30) {
+            background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/FloridaBackground.png"));
         }
     }
+
+
 
 
     public void onKeyPressed(KeyEvent keyEvent) {
@@ -225,8 +247,6 @@ public class GameScene extends BaseScene {
             car.setIsdPressed(false);
         }
     }
-
-
 
     @Override
     public void onEnter() {

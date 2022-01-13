@@ -20,7 +20,7 @@ public class CharacterScene extends BaseScene {
     private Cars cars;
     private Canvas canvas;
     private GraphicsContext gc;
-    private Image background = new Image(this.getClass().getResourceAsStream("/cars_wallpaper.jpg"));
+    private Image background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/cars_wallpaper.jpg"));
     private HBox hbox = new HBox();
     private HBox hbox2 = new HBox();
     private Label label;
@@ -35,7 +35,7 @@ public class CharacterScene extends BaseScene {
 
         label = new Label();
         label.setText("Select your Character");
-        label.setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 27));
+        label.setFont(Font.loadFont((getClass().getResourceAsStream("/fonts/font.ttf")), 27));
         label.setLayoutX(80);
         label.setLayoutY(100);
 

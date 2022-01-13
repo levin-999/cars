@@ -17,19 +17,19 @@ public class Cars {
 
     public Cars() {
         //InGameBilder
-        imagePathList.add("/lightningTopView.png");
-        imagePathList.add("/luigiTopView.png");
-        imagePathList.add("/MaterTopView.png");
-        imagePathList.add("/guidoTopView.png");
-        imagePathList.add("/SallyTopView.png");
-        imagePathList.add("/FilmoreTopView.png");
+        imagePathList.add("/images/topViews/lightningTopView.png");
+        imagePathList.add("/images/topViews/luigiTopView.png");
+        imagePathList.add("/images/topViews/MaterTopView.png");
+        imagePathList.add("/images/topViews/guidoTopView.png");
+        imagePathList.add("/images/topViews/SallyTopView.png");
+        imagePathList.add("/images/topViews/FilmoreTopView.png");
         //Bilder der Charakterauswahl
-        previewImagePathList.add("/lightningMcQueen.png");
-        previewImagePathList.add("/Luigi.png");
-        previewImagePathList.add("/Mater.png");
-        previewImagePathList.add("/Guido.png");
-        previewImagePathList.add("/Sally.png");
-        previewImagePathList.add("/Filmore.png");
+        previewImagePathList.add("/images/menuViews/lightningMcQueen.png");
+        previewImagePathList.add("/images/menuViews/Luigi.png");
+        previewImagePathList.add("/images/menuViews/Mater.png");
+        previewImagePathList.add("/images/menuViews/Guido.png");
+        previewImagePathList.add("/images/menuViews/Sally.png");
+        previewImagePathList.add("/images/menuViews/Filmore.png");
 
         nameList.add("Lightning");
         nameList.add("Luigi");

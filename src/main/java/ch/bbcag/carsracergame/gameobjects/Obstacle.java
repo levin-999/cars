@@ -11,7 +11,7 @@ public class Obstacle {
     private double x;
     private double y;
     Canvas canvas;
-    private Image image = new Image(this.getClass().getResourceAsStream("/cone_straight.png"));
+    private Image image = new Image(this.getClass().getResourceAsStream("/images/items/tire.png"));
 
     public Obstacle(double x, double y, Canvas canvas) {
         this.x = x;

@@ -12,12 +12,12 @@ import javafx.scene.text.Font;
 
 
 public class ImageButton extends Button {
-    private final String BUTTON_RELEASED = "-fx-background-color: transparent; -fx-background-image: url('yellow_button00.png')";
-    private final String BUTTON_PRESSED = "-fx-background-color: transparent; -fx-background-image: url('yellow_button01.png')";
+    private final String BUTTON_RELEASED = "-fx-background-color: transparent; -fx-background-image: url('images/menuItems/yellow_button00.png')";
+    private final String BUTTON_PRESSED = "-fx-background-color: transparent; -fx-background-image: url('images/menuItems/yellow_button01.png')";
 
     public ImageButton(String text, int x, int y) {
         setText(text);
-        setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 18));
+        setFont(Font.loadFont((getClass().getResourceAsStream("/fonts/font.ttf")), 18));
         setPrefSize(190, 49);
         setLayoutY(y);
         setLayoutX(x);
@@ -28,7 +28,7 @@ public class ImageButton extends Button {
     public ImageButton(String text) {
         setText(text);
         setStyle(BUTTON_RELEASED);
-        setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 18));
+        setFont(Font.loadFont((getClass().getResourceAsStream("/fonts/font.ttf")), 18));
         setPrefSize(190, 49);
         pressedOrReleased();
     }
@@ -38,7 +38,7 @@ public class ImageButton extends Button {
 
         setText(text);
         setStyle(BUTTON_RELEASED);
-        setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 18));
+        setFont(Font.loadFont((getClass().getResourceAsStream("/fonts/font.ttf")), 18));
         setPrefSize(190, 49);
         setOnAction(e -> navigator.navigateTo(nextScene));
         setLayoutY(y);

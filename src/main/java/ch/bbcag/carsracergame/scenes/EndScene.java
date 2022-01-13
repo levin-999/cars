@@ -14,8 +14,8 @@ import javafx.scene.text.Font;
 public class EndScene extends BaseScene {
     private Canvas canvas;
     private GraphicsContext gc;
-    private Image image = new Image(this.getClass().getResourceAsStream("/GameOver.png"));
-    private Image gameOverWallpaper = new Image(this.getClass().getResourceAsStream("/GameOverWallpaper.jpg"));
+    private Image titleImage = new Image(this.getClass().getResourceAsStream("/images/menuItems/GameOver.png"));
+    private Image gameOverWallpaper = new Image(this.getClass().getResourceAsStream("/images/backgrounds/GameOverWallpaper.jpg"));
     private Label label;
 
 
@@ -25,11 +25,11 @@ public class EndScene extends BaseScene {
         canvas = new Canvas(800, 600);
         gc = canvas.getGraphicsContext2D();
         gc.drawImage(gameOverWallpaper, 0, 0);
-        gc.drawImage(image, 35, 10);
+        gc.drawImage(titleImage, 35, 10);
 
         label = new Label();
         label.setText("Highscore: " + GameScene.highscore);
-        label.setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 27));
+        label.setFont(Font.loadFont((getClass().getResourceAsStream("/fonts/font.ttf")), 27));
         label.setLayoutX(80);
         label.setLayoutY(120);
 

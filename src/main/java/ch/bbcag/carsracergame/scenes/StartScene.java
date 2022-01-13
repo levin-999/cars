@@ -11,7 +11,7 @@ import javafx.scene.text.Font;
 
 
 public class StartScene extends BaseScene {
-    private Image menuBackground = new Image(this.getClass().getResourceAsStream("/cars_wallpaper.jpg"));
+    private Image menuBackground = new Image(this.getClass().getResourceAsStream("/images/backgrounds/cars_wallpaper.jpg"));
     private Canvas canvas;
     private GraphicsContext gc;
 
@@ -38,7 +38,7 @@ public class StartScene extends BaseScene {
 
     private void createCharacterButton() {
         ImageButton characterButton = new ImageButton("Choose Car", 550, 390, SceneType.CHARACTER, navigator);
-        characterButton.setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 13));
+        characterButton.setFont(Font.loadFont((getClass().getResourceAsStream("/fonts/font.ttf")), 13));
         getGroup().getChildren().add(characterButton);
     }
 

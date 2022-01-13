@@ -9,7 +9,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 
 public class ArrowButton extends Button {
-    private final String BUTTON_STYLE = "-fx-background-color: transparent; -fx-background-image: url('yellowArrow.png')";
+    private final String BUTTON_STYLE = "-fx-background-color: transparent; -fx-background-image: url('images/menuItems/yellowArrow.png')";
 
     public ArrowButton(int x, int y, SceneType nextScene, Navigator navigator) {
         setStyle(BUTTON_STYLE);
