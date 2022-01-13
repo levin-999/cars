@@ -45,13 +45,6 @@ public class Car {
         }
     }
 
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
-    }
 
     public void setLeftKeyPressed(boolean leftKeyPressed) {
         isLeftKeyPressed = leftKeyPressed;

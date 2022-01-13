@@ -20,13 +20,17 @@ public class Obstacle {
     }
 
     public void update(double deltaTimeInSec,  int Score) {
-        Speed = Score + 200;
+        Speed = Score + 250;
         double distanceToMove = Speed * deltaTimeInSec;
         y = y + distanceToMove;
     }
 
     public void draw(GraphicsContext gc) {
         gc.drawImage(image, x, y);
+    }
+
+    public double getY() {
+        return y;
     }
 
     public BoundingBox getBoundingBox() {

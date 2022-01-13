@@ -8,12 +8,10 @@ import java.util.List;
 public class Cars {
 
     private List<Car> cars = new ArrayList<>();
-    private int currentCar = 0;
-
     private List<String> imagePathList = new ArrayList<>();
     private List<String> nameList = new ArrayList<>();
     private List<String> previewImagePathList = new ArrayList<>();
-
+    private int currentCar = 0;
 
     public Cars() {
         //InGameBilder
@@ -50,8 +48,13 @@ public class Cars {
         return cars.get(currentCar);
     }
 
+
     public void setCurrentCar(int currentCar) {
         this.currentCar = currentCar;
+    }
+
+    public int getCurrentCar() {
+        return currentCar;
     }
 
     public String getImage(int index) {
@@ -64,5 +67,9 @@ public class Cars {
 
     public String getName(int index) {
         return nameList.get(index);
+    }
+
+    public int getCurrentIndex() {
+        return currentCar;
     }
 }

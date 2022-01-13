@@ -5,6 +5,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+import java.security.PublicKey;
+
 public class Coin {
     private double Speed = 200;
     private double x;
@@ -19,13 +21,17 @@ public class Coin {
     }
 
     public void update(double deltaTimeInSec, int Score) {
-        Speed = Score + 200;
+        Speed = Score + 250;
         double distanceToMove = Speed * deltaTimeInSec;
         y = y + distanceToMove;
     }
 
     public void draw(GraphicsContext gc) {
         gc.drawImage(image, x, y);
+    }
+
+    public double getY() {
+        return y;
     }
 
     public BoundingBox getBoundingBox() {

@@ -7,7 +7,6 @@ import ch.bbcag.carsracergame.gameobjects.Obstacle;
 import ch.bbcag.carsracergame.common.scene.BaseScene;
 import ch.bbcag.carsracergame.common.scene.Navigator;
 import ch.bbcag.carsracergame.common.scene.SceneType;
-import com.sun.javafx.media.PrismMediaFrameHandler;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -18,7 +17,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,23 +35,40 @@ public class GameScene extends BaseScene {
     private GraphicsContext gc;
     private Image background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/RadiatorSpringsBackground.png"));
     private String font = "src/main/resources/font.ttf";
-    private List<Obstacle> obstacles = new ArrayList<>();
+    private List<Obstacle> obstacles = new CopyOnWriteArrayList<>();
     private List<Coin> coins = new CopyOnWriteArrayList<>();
     private int score = 0;
     private Label label;
     public static int highscore;
 
+
+
+
+
+
     private URL audio1Path = getClass().getResource("/audio/LifeIsAHighway.mp3");
     private Media audio1 = new Media(audio1Path.toString());
     private MediaPlayer mediaPlayer1 = new MediaPlayer(audio1);
 
-    private URL audio2Path = getClass().getResource("/audio/TokyoDrift.mp3");
+    private URL audio2Path = getClass().getResource("/audio/RealGone.mp3");
     private Media audio2 = new Media(audio2Path.toString());
     private MediaPlayer mediaPlayer2 = new MediaPlayer(audio2);
 
     private URL audio3Path = getClass().getResource("/audio/TokyoDrift.mp3");
     private Media audio3 = new Media(audio3Path.toString());
     private MediaPlayer mediaPlayer3 = new MediaPlayer(audio3);
+
+    private URL audio4Path = getClass().getResource("/audio/TarantellaNapoletana.mp3");
+    private Media audio4 = new Media(audio4Path.toString());
+    private MediaPlayer mediaPlayer4 = new MediaPlayer(audio4);
+
+    private URL audio5Path = getClass().getResource("/audio/DayInTheLife.mp3");
+    private Media audio5 = new Media(audio5Path.toString());
+    private MediaPlayer mediaPlayer5 = new MediaPlayer(audio5);
+
+    private URL audio6Path = getClass().getResource("/audio/MyHouse.mp3");
+    private Media audio6 = new Media(audio6Path.toString());
+    private MediaPlayer mediaPlayer6 = new MediaPlayer(audio6);
 
 
 
@@ -78,44 +93,17 @@ public class GameScene extends BaseScene {
     public void update(double deltaInSec) {
         car.update(deltaInSec);
         spawnObstacles();
+        deleteObjects();
         spawnCoins();
         switchThemes();
-
-        if (score > highscore) {
-            highscore = score;
-        }
-
+        updateHighscore();
+        checkCollisions(deltaInSec);
         label.setText("Score: " + score);
-
-        for (Obstacle obstacle : obstacles) {
-            obstacle.update(deltaInSec, score);
-            if (obstacle.collidesWithCar(car)) {
-                score = 0;
-                navigator.navigateTo(SceneType.END);
-            }
-        }
-
-        for (Coin coin : coins) {
-            coin.update(deltaInSec, score);
-            if (coin.collidesWithCar(car)) {
-                coins.remove(coin);
-                score = score + 5;
-            }
-        }
     }
 
     public void paint() {
         gc.drawImage(background, 0, 0);
-
-        car.draw(gc);
-
-        for (Obstacle obstacle : obstacles) {
-            obstacle.draw(gc);
-        }
-
-        for (Coin coin : coins) {
-            coin.draw(gc);
-        }
+        drawGameObjects();
     }
 
     private void setupScene() {
@@ -140,11 +128,13 @@ public class GameScene extends BaseScene {
         this.setOnKeyReleased((e) -> onKeyReleased(e));
     }
 
-    public void spawnObstacles() {
+    private void spawnObstacles() {
         Random random = new Random();
 
-        int randInt = random.nextInt(600)+1;
-        int randY = random.nextInt(500)-500;
+
+
+        int randInt = random.nextInt(400)+1;
+        int randY = random.nextInt(500)-1000;
         double dRandY = Double.valueOf(randY);
 
         if (randInt < 10) {
@@ -164,11 +154,11 @@ public class GameScene extends BaseScene {
         }
     }
 
-    public void spawnCoins() {
+    private void spawnCoins() {
         Random random = new Random();
 
-        int randInt = random.nextInt(2000)+1;
-        int randY = random.nextInt(500)-500;
+        int randInt = random.nextInt(1000)+1;
+        int randY = random.nextInt(500)-1000;
         double dRandY = Double.valueOf(randY);
 
         if (randInt < 10) {
@@ -188,9 +178,14 @@ public class GameScene extends BaseScene {
         }
     }
 
-    public void switchThemes() {
+    private void switchThemes() {
         mediaPlayer1.setVolume(0.04);
+        mediaPlayer2.setVolume(0.04);
         mediaPlayer3.setVolume(0.04);
+        mediaPlayer4.setVolume(0.04);
+        mediaPlayer5.setVolume(0.04);
+        mediaPlayer6.setVolume(0.04);
+
         if (score < 5) {
             background =  new Image(this.getClass().getResourceAsStream("/images/backgrounds/RadiatorSpringsBackground.png"));
             mediaPlayer1.play();
@@ -198,29 +193,36 @@ public class GameScene extends BaseScene {
         if (score > 10) {
             background =  new Image(this.getClass().getResourceAsStream("/images/backgrounds/LosAngelesBackground.png"));
             mediaPlayer1.stop();
+            mediaPlayer2.play();
         }
-        if (score > 150) {
+        if (score > 15) {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/TokyoBackground.png"));
+            mediaPlayer2.stop();
             mediaPlayer3.play();
         }
         if (score > 20) {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/PortoCorsaBackground.png"));
+            mediaPlayer3.stop();
+            mediaPlayer4.play();
         }
         if (score > 25) {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/LondonBackground.png"));
+            mediaPlayer4.stop();
+            mediaPlayer5.play();
         }
         if (score > 30) {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/FloridaBackground.png"));
+            mediaPlayer5.stop();
+            mediaPlayer6.play();
         }
     }
 
 
 
 
-    public void onKeyPressed(KeyEvent keyEvent) {
+    private void onKeyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.LEFT) {
             car.setLeftKeyPressed(true);
-
         }
         else if (keyEvent.getCode() == KeyCode.RIGHT) {
             car.setRightKeyPressed(true);
@@ -233,7 +235,7 @@ public class GameScene extends BaseScene {
         }
     }
 
-    public void onKeyReleased(KeyEvent keyEvent) {
+    private void onKeyReleased(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.LEFT) {
             car.setLeftKeyPressed(false);
         }
@@ -248,6 +250,58 @@ public class GameScene extends BaseScene {
         }
     }
 
+    private void updateHighscore() {
+        if (score > highscore) {
+            highscore = score;
+        }
+    }
+
+    private void checkCollisions(double deltaInSec) {
+        for (Obstacle obstacle : obstacles) {
+            obstacle.update(deltaInSec, score);
+            if (obstacle.collidesWithCar(car)) {
+                score = 0;
+                navigator.navigateTo(SceneType.END);
+            }
+        }
+
+        for (Coin coin : coins) {
+            coin.update(deltaInSec, score);
+            if (coin.collidesWithCar(car)) {
+                coins.remove(coin);
+                score = score + 5;
+            }
+        }
+    }
+
+    private void drawGameObjects() {
+        car.draw(gc);
+
+        for (Obstacle obstacle : obstacles) {
+            obstacle.draw(gc);
+        }
+
+        for (Coin coin : coins) {
+            coin.draw(gc);
+        }
+    }
+
+    private void deleteObjects() {
+        for (Obstacle obstacle : obstacles) {
+            double y = obstacle.getY();
+            if (y > 600) {
+                obstacles.remove(obstacle);
+            }
+        }
+
+        for (Coin coin : coins ) {
+            double y = coin.getY();
+            if (y > 600) {
+                coins.remove(coin);
+            }
+        }
+    }
+
     @Override
     public void onEnter() {
         setupScene();
@@ -256,5 +310,11 @@ public class GameScene extends BaseScene {
     @Override
     public void onExit() {
         animationTimer.stop();
+        mediaPlayer1.stop();
+        mediaPlayer2.stop();
+        mediaPlayer3.stop();
+        mediaPlayer4.stop();
+        mediaPlayer5.stop();
+        mediaPlayer6.stop();
     }
 }

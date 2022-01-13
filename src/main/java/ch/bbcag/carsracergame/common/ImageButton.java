@@ -4,6 +4,7 @@ package ch.bbcag.carsracergame.common;
 import ch.bbcag.carsracergame.common.scene.Navigator;
 import ch.bbcag.carsracergame.common.scene.SceneType;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseButton;

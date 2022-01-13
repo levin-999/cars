@@ -21,6 +21,7 @@ public class CharacterButton extends VBox {
 
 
     public CharacterButton(Cars cars, int carIndex) {
+        super(5);
         this.previewImagePath= cars.getPreviewImage(carIndex);
         this.carName = cars.getName(carIndex);
         setImage();
@@ -28,6 +29,7 @@ public class CharacterButton extends VBox {
         imageView.setImage(image);
 
         button = new ImageButton(carName);
+
         this.getChildren().addAll(imageView, button);
         this.setPadding(new Insets(40, 20, 50, 45));
         button.setOnAction(e -> cars.setCurrentCar(carIndex));
