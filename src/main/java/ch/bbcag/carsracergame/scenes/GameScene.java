@@ -40,8 +40,8 @@ public class GameScene extends BaseScene {
     private int score = 0;
     private Label label;
     public static int highscore;
-    private int coinSpawnBound = 400;
-    private int obstacleSpawnBound = 1000;
+    private int coinSpawnBound = 1000;
+    private int obstacleSpawnBound = 450;
 
 
 
@@ -196,7 +196,7 @@ public class GameScene extends BaseScene {
             background =  new Image(this.getClass().getResourceAsStream("/images/backgrounds/LosAngelesBackground.png"));
             mediaPlayer1.stop();
             mediaPlayer2.play();
-            if (obstacleSpawnBound > 350) {
+            if (obstacleSpawnBound > 400) {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
@@ -204,7 +204,7 @@ public class GameScene extends BaseScene {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/TokyoBackground.png"));
             mediaPlayer2.stop();
             mediaPlayer3.play();
-            if (obstacleSpawnBound > 300) {
+            if (obstacleSpawnBound > 350) {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
@@ -212,7 +212,7 @@ public class GameScene extends BaseScene {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/PortoCorsaBackground.png"));
             mediaPlayer3.stop();
             mediaPlayer4.play();
-            if (obstacleSpawnBound > 250) {
+            if (obstacleSpawnBound > 300) {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
@@ -220,7 +220,7 @@ public class GameScene extends BaseScene {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/LondonBackground.png"));
             mediaPlayer4.stop();
             mediaPlayer5.play();
-            if (obstacleSpawnBound > 200) {
+            if (obstacleSpawnBound > 250) {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
@@ -228,7 +228,7 @@ public class GameScene extends BaseScene {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/FloridaBackground.png"));
             mediaPlayer5.stop();
             mediaPlayer6.play();
-            if (obstacleSpawnBound > 150) {
+            if (obstacleSpawnBound > 200) {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
