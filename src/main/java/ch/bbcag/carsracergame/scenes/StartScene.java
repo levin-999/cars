@@ -56,11 +56,9 @@ public class StartScene extends BaseScene {
 
     @Override
     public void onEnter() {
-        System.out.println("StartScene:onEnter");
     }
 
     @Override
     public void onExit() {
-        System.out.println("StartScene:onExit");
     }
 }

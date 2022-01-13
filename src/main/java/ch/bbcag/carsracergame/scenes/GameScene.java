@@ -14,7 +14,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
+
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -25,7 +29,6 @@ public class GameScene extends BaseScene {
 
 
     private Cars cars;
-
     private Car car;
     private AnimationTimer animationTimer;
     private long lastTimeInNanoSec;
@@ -37,7 +40,13 @@ public class GameScene extends BaseScene {
     private List<Coin> coins = new CopyOnWriteArrayList<>();
     private int score = 0;
     private Label label;
-    private double MAX_FONT_SIZE = 30;
+    //private String musicPath = "TokyoDrift.mp3";
+    //private Media media = new Media(Paths.get(musicPath).toUri().toString());
+    //private MediaPlayer mediaPlayer = new MediaPlayer(media);
+    public static int highscore;
+
+
+
 
 
     public GameScene(Navigator navigator, Cars cars) {
@@ -62,6 +71,10 @@ public class GameScene extends BaseScene {
         spawnObstacles();
         spawnCoins();
         switchBackground();
+
+        if (score > highscore) {
+            highscore = score;
+        }
 
         label.setText("Score: " + score);
 
@@ -172,6 +185,7 @@ public class GameScene extends BaseScene {
         }
         if (score > 10) {
             background =  new Image(this.getClass().getResourceAsStream("/LosAngelesBackground.png"));
+            //mediaPlayer.play();
         }
         if (score > 15) {
             background = new Image(this.getClass().getResourceAsStream("/TokyoBackground.png"));
@@ -190,6 +204,12 @@ public class GameScene extends BaseScene {
         else if (keyEvent.getCode() == KeyCode.RIGHT) {
             car.setRightKeyPressed(true);
         }
+        else if (keyEvent.getCode() == KeyCode.A) {
+            car.setIsaPressed(true);
+        }
+        else if (keyEvent.getCode() == KeyCode.D) {
+            car.setIsdPressed(true);
+        }
     }
 
     public void onKeyReleased(KeyEvent keyEvent) {
@@ -199,6 +219,12 @@ public class GameScene extends BaseScene {
         else if (keyEvent.getCode() == KeyCode.RIGHT) {
             car.setRightKeyPressed(false);
         }
+        else if (keyEvent.getCode() == KeyCode.A) {
+            car.setIsaPressed(false);
+        }
+        else if (keyEvent.getCode() == KeyCode.D) {
+            car.setIsdPressed(false);
+        }
     }
 
 
@@ -206,12 +232,10 @@ public class GameScene extends BaseScene {
     @Override
     public void onEnter() {
         setupScene();
-        System.out.println("GameScene:onEnter");
     }
 
     @Override
     public void onExit() {
         animationTimer.stop();
-        System.out.println("GameScene:onExit");
     }
 }

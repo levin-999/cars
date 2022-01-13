@@ -12,6 +12,8 @@ public class Car {
     private static final double y = 400;
     private boolean isLeftKeyPressed = false;
     private boolean isRightKeyPressed = false;
+    private boolean isaPressed = false;
+    private boolean isdPressed = false;
     public Image image;
 
     public Car(String imagePath) {
@@ -35,7 +37,12 @@ public class Car {
         else if (isRightKeyPressed && x < 540) {
             x = x + distanceToMove;
         }
-
+        else if (isaPressed && x > 210) {
+            x = x - distanceToMove;
+        }
+        else if (isdPressed && x < 540) {
+            x = x + distanceToMove;
+        }
     }
 
     public Image getImage() {
@@ -52,6 +59,14 @@ public class Car {
 
     public void setRightKeyPressed(boolean rightKeyPressed) {
         isRightKeyPressed = rightKeyPressed;
+    }
+
+    public void setIsaPressed(boolean isaPressed) {
+        this.isaPressed = isaPressed;
+    }
+
+    public void setIsdPressed(boolean isbPressed) {
+        this.isdPressed = isbPressed;
     }
 
     public BoundingBox getBoundingBox() {

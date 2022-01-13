@@ -6,7 +6,6 @@ import javafx.scene.image.Image;
 
 public abstract class BaseScene extends Scene {
     protected Navigator navigator;
-    protected Image carImage = new Image(this.getClass().getResourceAsStream("/cars_car.png"));
 
     public BaseScene(Navigator navigator) {
         super(new Group());

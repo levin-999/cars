@@ -13,7 +13,7 @@ import java.util.Objects;
 public class CharacterButton extends VBox {
 
     private Cars cars;
-    private String imagePath;
+    private String previewImagePath;
     private Image image;
     private ImageButton button;
     private String carName;
@@ -21,7 +21,7 @@ public class CharacterButton extends VBox {
 
 
     public CharacterButton(Cars cars, int carIndex) {
-        this.imagePath = cars.getImage(carIndex);
+        this.previewImagePath= cars.getPreviewImage(carIndex);
         this.carName = cars.getName(carIndex);
         setImage();
         imageView = new ImageView();
@@ -36,7 +36,7 @@ public class CharacterButton extends VBox {
     }
 
     private void setImage() {
-        image = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream(imagePath)));
+        image = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream(previewImagePath)));
     }
 
 

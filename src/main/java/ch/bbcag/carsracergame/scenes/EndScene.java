@@ -6,7 +6,9 @@ import ch.bbcag.carsracergame.common.scene.Navigator;
 import ch.bbcag.carsracergame.common.scene.SceneType;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 
 
 public class EndScene extends BaseScene {
@@ -14,6 +16,7 @@ public class EndScene extends BaseScene {
     private GraphicsContext gc;
     private Image image = new Image(this.getClass().getResourceAsStream("/GameOver.png"));
     private Image gameOverWallpaper = new Image(this.getClass().getResourceAsStream("/GameOverWallpaper.jpg"));
+    private Label label;
 
 
     public EndScene(Navigator navigator) {
@@ -24,31 +27,37 @@ public class EndScene extends BaseScene {
         gc.drawImage(gameOverWallpaper, 0, 0);
         gc.drawImage(image, 35, 10);
 
-        getGroup().getChildren().add(canvas);
+        label = new Label();
+        label.setText("Highscore: " + GameScene.highscore);
+        label.setFont(Font.loadFont((getClass().getResourceAsStream("/font.ttf")), 27));
+        label.setLayoutX(80);
+        label.setLayoutY(120);
+
+        getGroup().getChildren().addAll(canvas, label);
         createExitButton();
         createBackToStartButton();
+
+
     }
 
     
     
     private void createExitButton(){
-        ImageButton exitButton = new ImageButton("Exit", 150, 500);
+        ImageButton exitButton = new ImageButton("Exit", 120, 370);
         getGroup().getChildren().add(exitButton);
         exitButton.setOnAction(event -> System.exit(0));
     }
 
     private void createBackToStartButton(){
-        ImageButton backButton = new ImageButton("Menu", 150, 450, SceneType.START, navigator);
+        ImageButton backButton = new ImageButton("Menu", 120, 300, SceneType.START, navigator);
         getGroup().getChildren().add(backButton);
     }
 
     @Override
     public void onEnter() {
-        System.out.println("EndScene:onEnter");
     }
 
     @Override
     public void onExit() {
-        System.out.println("EndScene:onExit");
     }
 }

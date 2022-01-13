@@ -5,11 +5,10 @@ import ch.bbcag.carsracergame.common.scene.SceneType;
 import ch.bbcag.carsracergame.scenes.*;
 import ch.bbcag.carsracergame.common.scene.Navigator;
 import javafx.application.Application;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 
 public class App extends Application {
-    GraphicsContext gc;
+
 
     Cars cars = new Cars();
 
