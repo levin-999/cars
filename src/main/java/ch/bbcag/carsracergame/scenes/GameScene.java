@@ -64,7 +64,7 @@ public class GameScene extends BaseScene {
     private Media audio4 = new Media(audio4Path.toString());
     private MediaPlayer mediaPlayer4 = new MediaPlayer(audio4);
 
-    private URL audio5Path = getClass().getResource("/audio/DayInTheLife.mp3");
+    private URL audio5Path = getClass().getResource("/audio/JamesBondTheme.mp3");
     private Media audio5 = new Media(audio5Path.toString());
     private MediaPlayer mediaPlayer5 = new MediaPlayer(audio5);
 
@@ -192,7 +192,7 @@ public class GameScene extends BaseScene {
             background =  new Image(this.getClass().getResourceAsStream("/images/backgrounds/RadiatorSpringsBackground.png"));
             mediaPlayer1.play();
         }
-        if (score > 25) {
+        if (score >= 25) {
             background =  new Image(this.getClass().getResourceAsStream("/images/backgrounds/LosAngelesBackground.png"));
             mediaPlayer1.stop();
             mediaPlayer2.play();
@@ -200,7 +200,7 @@ public class GameScene extends BaseScene {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
-        if (score > 50) {
+        if (score >= 50) {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/TokyoBackground.png"));
             mediaPlayer2.stop();
             mediaPlayer3.play();
@@ -208,7 +208,7 @@ public class GameScene extends BaseScene {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
-        if (score > 75) {
+        if (score >= 75) {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/PortoCorsaBackground.png"));
             mediaPlayer3.stop();
             mediaPlayer4.play();
@@ -216,7 +216,7 @@ public class GameScene extends BaseScene {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
-        if (score > 100) {
+        if (score >= 100) {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/LondonBackground.png"));
             mediaPlayer4.stop();
             mediaPlayer5.play();
@@ -224,7 +224,7 @@ public class GameScene extends BaseScene {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
-        if (score > 125) {
+        if (score >= 125) {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/FloridaBackground.png"));
             mediaPlayer5.stop();
             mediaPlayer6.play();
@@ -286,7 +286,7 @@ public class GameScene extends BaseScene {
             coin.update(deltaInSec, score);
             if (coin.collidesWithCar(car)) {
                 coins.remove(coin);
-                score = score + 5;
+                score = score + 10;
             }
         }
     }
