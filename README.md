@@ -2,7 +2,7 @@
 
 #Abstract 
 
-In dem Spiel "CarsTheGame" spielt ihr mit bekannten Charakteren aus der Cars Triologie. <br />
+In dem Spiel "CarsTheGame" spielt man mit bekannten Charakteren aus der Cars Triologie. <br />
 Man fährt Rennen in verschiedenen Teilen der Welt. Das Ziel ist es, keine Hindernisse zu treffen und einen möglichst hohen Highscore zu erreichen. <br />
 Den Score kan man verbessern, indem man Münzen einsammelt.
 
@@ -48,19 +48,19 @@ Anforderungen: US-04 <br />
 Vorbedingungen: Der Benutzer hat funktionierende Tastatur/Maus. Das Programm wurde korrekt gestartet. <br />
 Ablauf:
 1. Der Benutzer startet das Spiel
-2. Der Startblidschirm erscheint
+2. Der Startbildschirm erscheint
 3. Der Benutzer klickt auf den "Game"-Button
 4. Das Spiel startet
 5. Mit "a", "d" oder den Pfeiltasten kann das Auto gesteuert werden <br />
 
-Erwartetes Resultat: Wird das Auto von einem Hinderniss getroffen, gelangt der Benutzer zum GameOver-Bildschirm
+Erwartetes Resultat: Wird das Auto von einem Hindernis getroffen, gelangt der Benutzer zum GameOver-Bildschirm
 
 ID: T-05 <br />
 Anforderungen: US-05 <br />
 Vorbedingungen: Der Benutzer hat funktionierende Tastatur/Maus. Das Programm wurde korrekt gestartet. <br />
 Ablauf:
 1. Der Benutzer startet das Spiel
-2. Der Startblidschirm erscheint
+2. Der Startbildschirm erscheint
 3. Der Benutzer klickt auf den "Game"-Button
 4. Das Spiel startet
 5. Mit "a", "d" oder den Pfeiltasten kann das Auto gesteuert werden <br />
@@ -72,26 +72,26 @@ Anforderungen: US-06 <br />
 Vorbedingungen: Der Benutzer hat funktionierende Tastatur/Maus. Das Programm wurde korrekt gestartet. <br />
 Ablauf:
 1. Der Benutzer startet das Spiel
-2. Der Startblidschirm erscheint
+2. Der Startbildschirm erscheint
 3. Der Benutzer klickt auf den "Game"-Button
 4. Das Spiel startet
 5. Mit "a", "d" oder den Pfeiltasten kann das Auto gesteuert werden
 6. Am oberen rechten Bildrand wir "Score: " und der korrekte momentane Score angezeigt
 7. Trifft das Auto eine Münze, erhöht sich der Score um 5
-8. Kollidiert der Benutzer mit einem Hinderniss, gelangt er zu dem GameOver Screen wo der momentane Highscore angezeit wird
+8. Kollidiert der Benutzer mit einem Hindernis, gelangt er zu dem GameOver Screen wo der momentane Highscore angezeigt wird
 9. Der Benutzer klickt auf den "Menu"-Knopf und gelangt dadurch zurück zum Hauptmenu
 10. Der Benutzer klickt auf den "Game"-Button und das Spiel startet erneut
 11. Der Score am oberen rechten Bildrand ist zum Start des Spiels auf 0 gesetzt
-12. Nach einen Kollision mit einem Hinderniss gelangt der Benutzer zurück zum GameOver-Screen <br />
+12. Nach einer Kollision mit einem Hindernis gelangt der Benutzer zurück zum GameOver-Screen <br />
 
-Erwartetes Resultat: Im Game-Over-Screen wird der neue (je nach dem ob der Benutzer einen neuen Highscore geschafft hat) Highscore angezeigt
+Erwartetes Resultat: Im Game-Over-Screen wird der neue (je nachdem ob der Benutzer einen neuen Highscore geschafft hat) Highscore angezeigt
 
 ID: T-07 <br />
 Anforderungen: US-07 <br />
 Vorbedingungen: Der Benutzer hat funktionierende Tastatur/Maus. Das Programm wurde korrekt gestartet. <br />
 Ablauf:
 1. Der Benutzer startet das Spiel
-2. Der Startblidschirm erscheint
+2. Der Startbildschirm erscheint
 3. Der Benutzer klickt auf den "Choose Car"-Button
 4. Es erscheint eine Szene in der sechs verschiedene Charaktere und die dazugehörigen buttons angezeigt werden
 5. Im oberen rechten Bildrand sieht der benutzer den momentan ausgewählten Charakter
@@ -108,37 +108,38 @@ Anforderungen: US-08 <br />
 Vorbedingungen: Der Benutzer hat funktionierende Tastatur/Maus. Das Programm wurde korrekt gestartet. <br />
 Ablauf:
 1. Der Benutzer startet das Spiel
-2. Der Startblidschirm erscheint
-3. Der Benutzer klickt auf den Game Button <br />
+2. Der Startbildschirm erscheint
+3. Der Benutzer klickt auf den "Game"-Button <br />
 
-Erwartets Resultat: Musik starte beim Start des Spiels und ändert wenn sich der Background ändert
+Erwartetes Resultat: Musik starte beim Start des Spiels und ändert, wenn sich der Background ändert
 
 ###Testprotokoll
-ID   |Erfolgreich|Bemerkungen <br />
-T-01 | Ja        | Funktioniert Einwandfrei <br />
-T-01 | Ja        | Funktionierte erneut einwandfrei <br />
-T-01 | Ja        | Funktionierte erneut einwandfrei <br />
-T-02 | Ja        | Funktioniert Einwandfrei <br />
-T-02 | Ja        | Funktionierte erneut einwandfrei <br />
-T-02 | Ja        | Funktionierte erneut einwandfrei <br />
-T-03 | Ja        | Funktioniert Einwandfrei <br />
-T-03 | Ja        | Funktionierte erneut einwandfrei <br />
-T-03 | Ja        | Funktionierte erneut einwandfrei <br />
-T-04 | Ja        | Funktioniert Einwandfrei <br />
-T-04 | Ja        | Funktionierte erneut einwandfrei <br />
-T-04 | Ja        | Funktionierte erneut einwandfrei <br />
-T-05 | Ja        | Funktioniert Einwandfrei <br />
-T-05 | Ja        | Funktionierte erneut einwandfrei <br />
-T-05 | Ja        | Funktionierte erneut einwandfrei <br />
-T-06 | Ja        | Funktioniert Einwandfrei <br />
-T-06 | Ja        | Funktionierte erneut einwandfrei <br />
-T-06 | Ja        | Funktionierte erneut einwandfrei <br />
-T-07 | Ja        | Funktioniert Einwandfrei <br />
-T-07 | Ja        | Funktionierte erneut einwandfrei <br />
-T-07 | Ja        | Funktionierte erneut einwandfrei <br />
-T-08 | Ja        | Funktioniert Einwandfrei <br />
-T-08 | Ja        | Funktionierte erneut einwandfrei <br />
-T-08 | Ja        | Funktionierte erneut einwandfrei <br />
+ID   |Erfolgreich|Bemerkungen 
+| --- | --- | ---|
+T-01 | Ja        | Funktioniert Einwandfrei
+T-01 | Ja        | Funktionierte erneut einwandfrei
+T-01 | Ja        | Funktionierte erneut einwandfrei
+T-02 | Ja        | Funktioniert Einwandfrei
+T-02 | Ja        | Funktionierte erneut einwandfrei
+T-02 | Ja        | Funktionierte erneut einwandfrei
+T-03 | Ja        | Funktioniert Einwandfrei
+T-03 | Ja        | Funktionierte erneut einwandfrei
+T-03 | Ja        | Funktionierte erneut einwandfrei
+T-04 | Ja        | Funktioniert Einwandfrei
+T-04 | Ja        | Funktionierte erneut einwandfrei
+T-04 | Ja        | Funktionierte erneut einwandfrei
+T-05 | Ja        | Funktioniert Einwandfrei
+T-05 | Ja        | Funktionierte erneut einwandfrei
+T-05 | Ja        | Funktionierte erneut einwandfrei
+T-06 | Ja        | Funktioniert Einwandfrei
+T-06 | Ja        | Funktionierte erneut einwandfrei
+T-06 | Ja        | Funktionierte erneut einwandfrei
+T-07 | Ja        | Funktioniert Einwandfrei
+T-07 | Ja        | Funktionierte erneut einwandfrei
+T-07 | Ja        | Funktionierte erneut einwandfrei
+T-08 | Ja        | Funktioniert Einwandfrei
+T-08 | Ja        | Funktionierte erneut einwandfrei
+T-08 | Ja        | Funktionierte erneut einwandfrei
 
 
 #Fazit

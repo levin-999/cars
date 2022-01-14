@@ -169,12 +169,12 @@ public class GameScene extends BaseScene {
     }
 
     private void switchThemes() {
-        mediaPlayer1.setVolume(0.04);
-        mediaPlayer2.setVolume(0.04);
-        mediaPlayer3.setVolume(0.04);
-        mediaPlayer4.setVolume(0.04);
-        mediaPlayer5.setVolume(0.04);
-        mediaPlayer6.setVolume(0.04);
+        mediaPlayer1.setVolume(0.2);
+        mediaPlayer2.setVolume(0.2);
+        mediaPlayer3.setVolume(0.2);
+        mediaPlayer4.setVolume(0.2);
+        mediaPlayer5.setVolume(0.2);
+        mediaPlayer6.setVolume(0.2);
 
         if (score < 5) {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/RadiatorSpringsBackground.png"));
@@ -184,7 +184,7 @@ public class GameScene extends BaseScene {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/LosAngelesBackground.png"));
             mediaPlayer1.stop();
             mediaPlayer2.play();
-            if (obstacleSpawnBound > 400) {
+            if (obstacleSpawnBound >= 400) {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
@@ -192,7 +192,7 @@ public class GameScene extends BaseScene {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/TokyoBackground.png"));
             mediaPlayer2.stop();
             mediaPlayer3.play();
-            if (obstacleSpawnBound > 350) {
+            if (obstacleSpawnBound >= 350) {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
@@ -200,7 +200,7 @@ public class GameScene extends BaseScene {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/PortoCorsaBackground.png"));
             mediaPlayer3.stop();
             mediaPlayer4.play();
-            if (obstacleSpawnBound > 300) {
+            if (obstacleSpawnBound >= 300) {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
@@ -208,7 +208,7 @@ public class GameScene extends BaseScene {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/LondonBackground.png"));
             mediaPlayer4.stop();
             mediaPlayer5.play();
-            if (obstacleSpawnBound > 250) {
+            if (obstacleSpawnBound >= 250) {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
@@ -216,10 +216,22 @@ public class GameScene extends BaseScene {
             background = new Image(this.getClass().getResourceAsStream("/images/backgrounds/FloridaBackground.png"));
             mediaPlayer5.stop();
             mediaPlayer6.play();
-            if (obstacleSpawnBound > 200) {
+            if (obstacleSpawnBound >= 200) {
                 obstacleSpawnBound = obstacleSpawnBound - 50;
             }
         }
+        if (score >= 150) {
+            if (obstacleSpawnBound >= 150) {
+                obstacleSpawnBound = obstacleSpawnBound - 100;
+                coinSpawnBound = coinSpawnBound - 100;
+            }
+        }
+        if (score >= 200) {
+            if (coinSpawnBound >= 900) {
+                coinSpawnBound = coinSpawnBound - 100;
+            }
+        }
+
     }
 
 

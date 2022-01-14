@@ -111,7 +111,7 @@ public class CharacterScene extends BaseScene {
 
 
     private void setSecondLabel() {
-        label2 = new Label("Your choice:");
+        label2 = new Label("Selected:");
         label2.setLayoutX(620);
         label2.setLayoutY(20);
         label2.setFont(Font.loadFont((getClass().getResourceAsStream("/fonts/font.ttf")), 14));
