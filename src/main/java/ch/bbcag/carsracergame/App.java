@@ -23,7 +23,7 @@ public class App extends Application {
         navigator.registerScene(SceneType.CHARACTER, () -> new CharacterScene(navigator, cars));
         navigator.navigateTo(SceneType.START);
 
-        primaryStage.setTitle("ch/bbcag/carsracergame");
+        primaryStage.setTitle("CarsTheGame");
         primaryStage.show();
     }
 }

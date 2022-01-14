@@ -2,15 +2,15 @@
 
 #Abstract 
 
-In dem Spiel "CarsTheGame" spielt ihr mit bekannten Charakteren aus der Cars Triologie. 
-Man fährt Rennen in verschiedenen Teilen der Welt. Das Ziel ist es, keine Hindernisse zu treffen und einen möglichst hohen Highscore zu erreichen. 
-den SCore kan man verbessern, indem man Münzen einsammelt.
+In dem Spiel "CarsTheGame" spielt ihr mit bekannten Charakteren aus der Cars Triologie. <br />
+Man fährt Rennen in verschiedenen Teilen der Welt. Das Ziel ist es, keine Hindernisse zu treffen und einen möglichst hohen Highscore zu erreichen. <br />
+Den Score kan man verbessern, indem man Münzen einsammelt.
 
 #Testprotokoll
 Version 1.0, 14. Januar 2022 | Projektteam: Levin Zehnder, Mattia Gisiger
 ##Testkonzept
-Sourcecodeversion: commit: "small adjustments to the score system" (14.01.2022 9:05)
-Betriebssystem: Windows 10
+Sourcecodeversion: commit: "small adjustments to the score system" (14.01.2022 9:05) <br />
+Betriebssystem: Windows 10 <br />
 Java-Version: 16.0.2
 ##User Acceptance Testfälle
 ID: T-01 <br />
@@ -114,40 +114,39 @@ Ablauf:
 Erwartets Resultat: Musik starte beim Start des Spiels und ändert wenn sich der Background ändert
 
 ###Testprotokoll
-ID   |Erfolgreich|Bemerkungen
-T-01 | Ja        | Funktioniert Einwandfrei 
-T-01 | Ja        | Funktionierte erneut einwandfrei
-T-01 | Ja        | Funktionierte erneut einwandfrei
-T-02 | Ja        | Funktioniert Einwandfrei
-T-02 | Ja        | Funktionierte erneut einwandfrei
-T-02 | Ja        | Funktionierte erneut einwandfrei
-T-03 | Ja        | Funktioniert Einwandfrei
-T-03 | Ja        | Funktionierte erneut einwandfrei
-T-03 | Ja        | Funktionierte erneut einwandfrei
-T-04 | Ja        | Funktioniert Einwandfrei
-T-04 | Ja        | Funktionierte erneut einwandfrei
-T-04 | Ja        | Funktionierte erneut einwandfrei
-T-05 | Ja        | Funktioniert Einwandfrei
-T-05 | Ja        | Funktionierte erneut einwandfrei
-T-05 | Ja        | Funktionierte erneut einwandfrei
-T-06 | Ja        | Funktioniert Einwandfrei
-T-06 | Ja        | Funktionierte erneut einwandfrei
-T-06 | Ja        | Funktionierte erneut einwandfrei
-T-07 | Ja        | Funktioniert Einwandfrei
-T-07 | Ja        | Funktionierte erneut einwandfrei
-T-07 | Ja        | Funktionierte erneut einwandfrei
-T-08 | Ja        | Funktioniert Einwandfrei
-T-08 | Ja        | Funktionierte erneut einwandfrei
-T-08 | Ja        | Funktionierte erneut einwandfrei
+ID   |Erfolgreich|Bemerkungen <br />
+T-01 | Ja        | Funktioniert Einwandfrei <br />
+T-01 | Ja        | Funktionierte erneut einwandfrei <br />
+T-01 | Ja        | Funktionierte erneut einwandfrei <br />
+T-02 | Ja        | Funktioniert Einwandfrei <br />
+T-02 | Ja        | Funktionierte erneut einwandfrei <br />
+T-02 | Ja        | Funktionierte erneut einwandfrei <br />
+T-03 | Ja        | Funktioniert Einwandfrei <br />
+T-03 | Ja        | Funktionierte erneut einwandfrei <br />
+T-03 | Ja        | Funktionierte erneut einwandfrei <br />
+T-04 | Ja        | Funktioniert Einwandfrei <br />
+T-04 | Ja        | Funktionierte erneut einwandfrei <br />
+T-04 | Ja        | Funktionierte erneut einwandfrei <br />
+T-05 | Ja        | Funktioniert Einwandfrei <br />
+T-05 | Ja        | Funktionierte erneut einwandfrei <br />
+T-05 | Ja        | Funktionierte erneut einwandfrei <br />
+T-06 | Ja        | Funktioniert Einwandfrei <br />
+T-06 | Ja        | Funktionierte erneut einwandfrei <br />
+T-06 | Ja        | Funktionierte erneut einwandfrei <br />
+T-07 | Ja        | Funktioniert Einwandfrei <br />
+T-07 | Ja        | Funktionierte erneut einwandfrei <br />
+T-07 | Ja        | Funktionierte erneut einwandfrei <br />
+T-08 | Ja        | Funktioniert Einwandfrei <br />
+T-08 | Ja        | Funktionierte erneut einwandfrei <br />
+T-08 | Ja        | Funktionierte erneut einwandfrei <br />
 
 
 #Fazit
 
-Allgemein lief das Projekt sehr gut. 
-beim projektantrag haben wir uns sehr gut eingeschätzt.
-Die Zusammenarbeit im Team lief sehr gut.
-Wir haben gelernt, dass man beim Projektantrag scheinbar einfache Features im vorhinein besser überdenken sollte.
-Wir konnten alle erforderlichen und alle optionalen Features implementieren.
-Es gibt noch diverse Bugs (Musik läuft nach gameOver manchmal weiter, Auto steuert alleine nach rechts/links nach Kollision mit einem Hindernis).
-Beim nächsten Projekt würden wir etwas machen das weniger Grafiken erfordert. 
-Mit dem Endprodukt sind wir bis auf die diversen bugs sehr zufrieden.
+Allgemein lief das Projekt sehr gut. <br />
+Beim Projektantrag haben wir uns sehr gut eingeschätzt und die Zusammenarbeit im Team lief sehr gut. <br />
+Wir haben gelernt, dass man beim Projektantrag scheinbar einfache Features im vorhinein besser überdenken sollte. <br />
+Wir konnten alle erforderlichen und alle optionalen Features implementieren. <br />
+Es gibt noch diverse Bugs (Musik läuft nach gameOver manchmal weiter, Auto steuert alleine nach rechts/links nach Kollision mit einem Hindernis). <br />
+Beim nächsten Projekt würden wir etwas machen das weniger Grafiken erfordert. <br />
+Mit dem Endprodukt sind wir bis auf die diversen Bugs sehr zufrieden.
