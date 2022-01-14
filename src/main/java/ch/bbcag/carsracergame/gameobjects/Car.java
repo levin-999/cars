@@ -18,7 +18,7 @@ public class Car {
 
     public Car(String imagePath) {
         this.imagePath = imagePath;
-        image =  new Image(this.getClass().getResourceAsStream(imagePath));
+        image = new Image(this.getClass().getResourceAsStream(imagePath));
     }
 
     public void update(double deltaTimeInSec) {
@@ -32,15 +32,12 @@ public class Car {
 
     public void moveCar(double distanceToMove) {
         if (isLeftKeyPressed && x > 210) {
-            x = x -distanceToMove;
-        }
-        else if (isRightKeyPressed && x < 540) {
-            x = x + distanceToMove;
-        }
-        else if (isaPressed && x > 210) {
             x = x - distanceToMove;
-        }
-        else if (isdPressed && x < 540) {
+        } else if (isRightKeyPressed && x < 540) {
+            x = x + distanceToMove;
+        } else if (isaPressed && x > 210) {
+            x = x - distanceToMove;
+        } else if (isdPressed && x < 540) {
             x = x + distanceToMove;
         }
     }

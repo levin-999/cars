@@ -19,7 +19,7 @@ public class Obstacle {
         this.canvas = canvas;
     }
 
-    public void update(double deltaTimeInSec,  int Score) {
+    public void update(double deltaTimeInSec, int Score) {
         Speed = Score + 250;
         double distanceToMove = Speed * deltaTimeInSec;
         y = y + distanceToMove;
@@ -39,5 +39,9 @@ public class Obstacle {
 
     public boolean collidesWithCar(Car car) {
         return this.getBoundingBox().intersects(car.getBoundingBox());
+    }
+
+    public boolean collidesWithCoin(Coin coin) {
+        return this.getBoundingBox().intersects(coin.getBoundingBox());
     }
 }

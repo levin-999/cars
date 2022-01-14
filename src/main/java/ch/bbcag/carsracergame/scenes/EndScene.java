@@ -40,15 +40,14 @@ public class EndScene extends BaseScene {
 
     }
 
-    
-    
-    private void createExitButton(){
+
+    private void createExitButton() {
         ImageButton exitButton = new ImageButton("Exit", 120, 370);
         getGroup().getChildren().add(exitButton);
         exitButton.setOnAction(event -> System.exit(0));
     }
 
-    private void createBackToStartButton(){
+    private void createBackToStartButton() {
         ImageButton backButton = new ImageButton("Menu", 120, 300, SceneType.START, navigator);
         getGroup().getChildren().add(backButton);
     }

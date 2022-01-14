@@ -59,7 +59,7 @@ public class CharacterScene extends BaseScene {
         };
         animationTimer.start();
 
-        selected =  new Image(Objects.requireNonNull(this.getClass().getResourceAsStream(cars.getPreviewImage(cars.getCurrentIndex()))));
+        selected = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream(cars.getPreviewImage(cars.getCurrentIndex()))));
         canvas = new Canvas(800, 600);
         gc = canvas.getGraphicsContext2D();
         gc.drawImage(background, 0, 0);
@@ -67,7 +67,7 @@ public class CharacterScene extends BaseScene {
         gc.drawImage(yellowBox, 600, 10);
 
 
-        setLabel ("Select your character", 95, 50);
+        setLabel("Select your character", 95, 50);
         setSecondLabel();
 
 
@@ -85,7 +85,6 @@ public class CharacterScene extends BaseScene {
         car4.setAlignment(Pos.CENTER);
         car5.setAlignment(Pos.CENTER);
         hbox2.setLayoutY(350);
-
 
 
         ArrowButton goBackArrow = new ArrowButton(10, 35, SceneType.START, navigator);
@@ -111,7 +110,7 @@ public class CharacterScene extends BaseScene {
     }
 
 
-    private void setSecondLabel(){
+    private void setSecondLabel() {
         label2 = new Label("Your choice:");
         label2.setLayoutX(620);
         label2.setLayoutY(20);
@@ -120,7 +119,7 @@ public class CharacterScene extends BaseScene {
     }
 
     private void update() {
-        selected =  new Image(Objects.requireNonNull(this.getClass().getResourceAsStream(cars.getPreviewImage(cars.getCurrentIndex()))));
+        selected = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream(cars.getPreviewImage(cars.getCurrentIndex()))));
     }
 
     private void paint() {
