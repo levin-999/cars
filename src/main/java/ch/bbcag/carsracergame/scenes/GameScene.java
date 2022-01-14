@@ -286,7 +286,7 @@ public class GameScene extends BaseScene {
             coin.update(deltaInSec, score);
             if (coin.collidesWithCar(car)) {
                 coins.remove(coin);
-                score = score + 10;
+                score = score + 5;
             }
         }
     }

@@ -7,7 +7,7 @@ den SCore kan man verbessern, indem man Münzen einsammelt.
 #Testprotokoll
 Version 1.0, 14. Januar 2022 | Projektteam: Levin Zehnder, Mattia Gisiger
 ##Testkonzept
-Sourcecodeversion: commit: "changed background music, changed score system for presentation purposes" (14.01.2022 8:13)
+Sourcecodeversion: commit: "started README, small changes" (14.01.2022 9:03)
 Betriebssystem: Windows 10
 Java-Version: 16.0.2
 ##User Acceptance Testfälle
